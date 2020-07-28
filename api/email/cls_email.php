@@ -1,9 +1,14 @@
 <?php
 
-require "vendor/autoload.php";
-
 Class Cls_email {
 
+    
+
+    public $enderecos;
+    public $mensagem;
+    public $assunto;
+
+    
     
     public function enviarEmail(){
         $mail = new PHPMailer(true);
@@ -16,27 +21,27 @@ Class Cls_email {
             $mail->SMTPAuth   = false;                                  
             $mail->Username   = 'contato@macarenca.com';                    
             $mail->Password   = '!Maca2512';                            
-            $mail->Port       = 587;              
+            $mail->Port       = 587;             
+            //PERSONALIZACAO DO REMETENTE 
             $mail->setFrom('contato@macarenca.com', 'Macarena Croche');                      
 
             //RECEPTORES
-            $mail->addAddress('neto.paulo.po@gmail.com');
+            foreach ($this->enderecos as $endereco) {
+                $mail->addAddress($endereco);
+            }
 
             // ARQUIVOS ANEXO
 
+
             // CONTEUDO
             $mail->isHTML(true);
-            $mail->Subject = 'Assunto';
-            $mail->Body    = file_get_contents("../../assets/emails/teste.html");
-            $mail->Body    = str_replace("BOBINHA", "LINDINHA", $mail->Body);
+            $mail->Subject = $this->assunto;
+            $mail->Body    = $this->mensagem;
             $mail->send();
             echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent.";
         }
-
     }
-
-    
 }
 ?>
