@@ -1,14 +1,25 @@
 $(document).ready(function () {
-    iniciarComponetes();
+    //ATRASA INICIALIZACAO POR CAUSA DO SLICK - ELE PRECISA INICIAR PRIMEIRO
     carousel();
-    iniciarMascara();
-    AOS.init();
+    setTimeout(() => {
+        iniciarComponetes();
+        iniciarMascara();
+        AOS.init();
+    }, 500);
 });
 var phone = '5519988700830';
-var baseUrl = window.location.href;
+var DIRETORIO = window.location.href + "/includes/";
 
 
 function iniciarComponetes() {
+    $(window).scroll(function () {
+        if ($(document).scrollTop() >= 50) {
+            $('.arrowBottom').fadeOut();
+        } else {
+            $('.arrowBottom').fadeIn();
+        }
+    })
+
     $('.menu_toggle').on('click', function () {
         $('.menu_txt').slideToggle('fast');
     });
@@ -19,7 +30,7 @@ function iniciarComponetes() {
     }
 
     $('#btn_email').on('click', function () {
-        enviarEmail();
+        enviarEmailContato();
     });
     $('#btn_wpp').on('click', function () {
         enviarWpp();
@@ -27,9 +38,22 @@ function iniciarComponetes() {
     $('.staticWpp').on('click', function() {
         abrirModalWpp();
     });
+    $('.staticEmail').on('click', function() {
+        abrirModalEmail();
+    });
     $('.fundoModalWpp').on('click', function() {
          $(this).fadeOut('fast');
          $('.modalWpp').fadeOut('fast');
+    });
+    $('.close-x').on('click', function(){
+        $('.fundoModalWpp').fadeOut('fast');
+        $('.modalWpp').fadeOut('fast');
+        $('.fundoModalEmail').fadeOut('fast');
+        $('.modalEmail').fadeOut('fast');
+    });
+    $('.fundoModalEmail').on('click', function() {
+         $(this).fadeOut('fast');
+         $('.modalEmail').fadeOut('fast');
     });
 
     $('.btn_agende_aqui').on('click', function(){
@@ -52,7 +76,7 @@ function iniciarComponetes() {
       }, 2000);
     });
 
-    $('#inicio, #princpal_servicos').css('min-height', (window.innerHeight - parseInt($('#menu').css('height'))))
+    $('#inicio, #princpal_servicos').css('min-height', (window.innerHeight - parseInt($('#menu').css('height'))));
 
 }
 
@@ -80,28 +104,15 @@ function clearInputs(classe) {
 function carousel() {
     $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
     //$('.logos, .logo img').css('width', window.innerWidth);
-    $('.first-item').slick({
-      arrows: true,
-    });
-    $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
-    $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
+    setTimeout(() => {
+        $('.first-item').slick({
+          arrows: true,
+        });
+        $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
+        $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
+    }, 500);
 }
 
-var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -23.2150591, lng: -45.9078646 },
-        zoom: 18,
-        mapTypeId: 'roadmap'
-    });
-    var consultorioPosition = { lat: -23.2150591, lng: -45.9078646 }
-    var marker = new google.maps.Marker({
-        position: consultorioPosition,
-        map: map,
-        title: 'Dra Victoria Pereira',
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-}
 
 function verificaCampoVazio(objDM, classe) {
     var valido = true;
@@ -177,7 +188,7 @@ function enviarWpp() {
         return
     } else {
         window.open('https://api.whatsapp.com/send?phone=' + phone + '&text=Olá, me chamo ' + objWpp.nome + ' e gostaria de saber: ' + objWpp.mensagem, '_blank');
-        $('#btn_wpp').html('<b>Enviar</b>');
+        $('#btn_wpp').html('<i class="fab fa-3x fa-whatsapp-square"></i>');
         $('#btn_wpp').removeAttr('disabled');
         clearInputs('wpp')
     }
@@ -188,9 +199,13 @@ function abrirModalWpp() {
     $('.fundoModalWpp').fadeToggle('fast');
     $('.modalWpp').fadeToggle('fast');
 }
+function abrirModalEmail(){
+    $('.fundoModalEmail').fadeToggle('fast');
+    $('.modalEmail').fadeToggle('fast');
+}
 
-function enviarEmail() {
 
+function enviarEmailContato(){
     $('#btn_email').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
     $('#btn_email').attr('disabled', 'disabled');
 
@@ -229,41 +244,61 @@ function enviarEmail() {
     } else {
         $.ajax({
             type: "POST",
-            url: baseUrl + "WebMethods.aspx/EnviarEmail",
+            url: DIRETORIO + "enviarEmailContato.php",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: "{ dados:  '" + JSON.stringify(objEmail) + "'}",
-            success: function (response) {
-                var ret = JSON.parse(response.d);
-                swal({
-                    title: ret.title,
-                    text: ret.message,
-                    type: ret.type,
-                    showCancelButton: false,
-                    confirmButtonColor: '#66AAD7',
-                    confirmButtonText: 'Ok',
+            data: "{}",
+        }).done(function (ret) {
+            swal({
+                title: ret.title,
+                text: ret.message,
+                type: ret.type,
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
                 }).then(function () {
                     if (ret.sucesso) {
-                        clearInputs();
+                        clearInputs('email');
                     }
                     $('#btn_email').html('<b>Enviar</b>');
                     $('#btn_email').removeAttr('disabled');
-                });
-            },
-            error: function (response) {
-                swal({
-                    title: 'Erro!',
-                    text: "Ocorreu um erro ao enviar mensagem.",
-                    type: 'error',
-                    showCancelButton: false,
-                    confirmButtonColor: '#66AAD7',
-                    confirmButtonText: 'Ok',
+            });
+        }).fail(function (response) {
+            swal({
+                title: 'Erro!',
+                text: "Ocorreu um erro ao enviar mensagem.",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
                 }).then(function () {
-                    $('#btn_email').html('<b>Enviar</b>');
-                    $('#btn_email').removeAttr('disabled');
-                });
-            }
+                $('#btn_email').html('<b>Enviar</b>');
+                $('#btn_email').removeAttr('disabled');
+            });
         });
     }
     clearInputs('email');
+}
+
+function scrollToQuemSomos(){
+    $("html, body").delay(200).animate({scrollTop: (window.innerHeight - parseInt($('#menu').css('height')))}, 1000);
+}
+
+
+function teste(){
+    $('.staticWpp').addClass('staticWppAnimation');
+    setTimeout(() => {
+        $('.staticWpp').addClass('staticWppPosTwo');
+        $('.staticWpp').removeClass('staticWppPosOne');
+        $('.staticWpp').removeClass('staticWppAnimationVolta');
+    }, 2000);
+}
+
+function volta(){
+    $('.staticWpp').addClass('staticWppAnimationVolta');
+    setTimeout(() => {
+        $('.staticWpp').addClass('staticWppPosOne');
+        $('.staticWpp').removeClass('staticWppPosTwo');
+        $('.staticWpp').removeClass('staticWppAnimation');
+    }, 2000);
 }

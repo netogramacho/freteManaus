@@ -7,21 +7,20 @@ Class Cls_email {
     public $enderecos;
     public $mensagem;
     public $assunto;
-
-    
     
     public function enviarEmail(){
         $mail = new PHPMailer(true);
 
         try {
-            //CONFIGURACOES DO EMAIL QUE VAI FAZER O ENVIO
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+            //CONFIGURACOES DO EMAIL QUE VAI FAZER O ENVIO       
+                        
             $mail->isSMTP();                                           
             $mail->Host       = 'mail.macarencacroche.com';                   
             $mail->SMTPAuth   = false;                                  
             $mail->Username   = 'contato@macarenca.com';                    
             $mail->Password   = '!Maca2512';                            
-            $mail->Port       = 587;             
+            $mail->Port       = 587;         
+
             //PERSONALIZACAO DO REMETENTE 
             $mail->setFrom('contato@macarenca.com', 'Macarena Croche');                      
 
@@ -38,9 +37,9 @@ Class Cls_email {
             $mail->Subject = $this->assunto;
             $mail->Body    = $this->mensagem;
             $mail->send();
-            echo 'Message has been sent';
+            return true;
         } catch (Exception $e) {
-            echo "Message could not be sent.";
+            return false;
         }
     }
 }

@@ -48,26 +48,14 @@
         <div class="col-md-12 col-sm-12 col-12">
             <div data-aos="fade-right" id="convenios">
                 <div id="logos" class="first-item logos">
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/barcoContainer.png" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/barcoContainer.png" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/barcoContainer.png" alt="">
-                    </div>
+                  <div class="logo">
+                    <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
+                  </div>
+                  <div class="logo">
+                    <img class="logoImg" src="assets/imagens/barcoContainer.png" alt="">
+                  </div>
                 </div>
-                <i class="fas fa-arrow-down arrowBottom"></i>
+                <i onclick="scrollToQuemSomos()" class="fas fa-arrow-down arrowBottom"></i>
             </div>
         </div>
     </div>
@@ -174,111 +162,119 @@
 
 
 
-    <!-- MODAL EMAIL (TODO) 
-      <div class="row contato">
+      <div class="row modalEmail">
+        <div class="close-x">
+          <i class="fas fa-times"></i>
+        </div>
+          <h4 class="text_center">Entre em contato por email:</h4>
         <div class="col-md-12">
             <div class="container-fluid">
                 <div class="row tit_duvidas">
-                    <div class="col-md-6">
-                    <h2 data-aos="zoom-in" class="text_center">Esclareça sua dúvida:</h2>
-                    <div data-aos="fade-right" class="sep_direita">
-                        <h4 class="text_center">Por email:</h4>
-                        <div class="formulario">
+                    <div class="col-md-12">
+                    <div class="formulario">
+                      <div class="row">
+                          <div class="col-md-12">
+                          <div class="row">
+                              <div class="col-md-2 col-2">
+                              <i class="far fa-2x fa-user-circle"></i>
+                              </div>
+                              <div class="col-md-10 col-10">
+                              <input placeholder="Seu nome" id="email_nome" type="text" />
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="formulario">
+                      <div class="row">
+                          <div class="col-md-12">
+                          <div class="row">
+                              <div class="col-md-2 col-2">
+                              <i class="fas fa-2x fa-phone-square"></i>
+                              </div>
+                              <div class="col-md-10 col-10">
+                              <input class="sp_celphones" placeholder="Telefone" id="email_telefone" type="tel" />
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="formulario">
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-2 col-2">
+                              <i class="fas fa-2x fa-envelope-square"></i>
+                            </div>
+                            <div class="col-md-10 col-10">
+                              <input placeholder="E-mail" id="email_email" type="text" />
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="formulario_msg">
+                    <div class="row">
+                        <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2 col-2">
-                                <i class="far fa-2x fa-user-circle"></i>
-                                </div>
-                                <div class="col-md-10 col-10">
-                                <input placeholder="Seu nome" id="email_nome" type="text" />
-                                </div>
+                            <div class="col-md-2 col-2">
+                            <i class="fas fa-2x fa-comments"></i>
                             </div>
+                            <div class="col-md-10 col-10">
+                            <textarea class="txt_Msg" id="email_msg" placeholder="Mensagem" id="" type="text"></textarea>
                             </div>
                         </div>
                         </div>
-                        <div class="formulario">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2 col-2">
-                                <i class="fas fa-2x fa-phone-square"></i>
-                                </div>
-                                <div class="col-md-10 col-10">
-                                <input class="sp_celphones" placeholder="Telefone" id="email_telefone" type="tel" />
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="formulario">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2 col-2">
-                                <i class="fas fa-2x fa-envelope-square"></i>
-                                </div>
-                                <div class="col-md-10 col-10">
-                                <input placeholder="E-mail" id="email_email" type="text" />
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="formulario_msg">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2 col-2">
-                                <i class="fas fa-2x fa-comments"></i>
-                                </div>
-                                <div class="col-md-10 col-10">
-                                <textarea class="txt_Msg" id="email_msg" placeholder="Mensagem" id="" type="text"></textarea>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="div_btn">
-                        <button class="btn btn_Padrao" id="btn_email">
-                            <b>
-                            Enviar
-                            </b>
-                        </button>
-                        </div>
+                    </div>
+                    </div>
+                    <div class="div_btn">
+                    <button class="btn btn_Padrao" id="btn_email">
+                        <b>
+                        Enviar
+                        </b>
+                    </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
         </div>
-      </div> -->
+      </div>
 
     
     <!-- BOTAO E MODAL Whats App -->
-    <div class="staticWpp">
+    <div class="staticWpp staticWppPosOne">
       <i class="fab fa-whatsapp-square"></i>
+    </div>
+    <div class="staticEmail">
+    <i class="fas fa-envelope"></i>
     </div>
     <div class="fundoModalWpp">
         
     </div>
+    <div class="fundoModalEmail">
+        
+    </div>
     <div class="modalWpp">
-            <div class="col-12">
-                <h4>Entre em contato por WhatsApp</h4>
+      <div class="close-x">
+        <i class="fas fa-times"></i>
+      </div>
+      <h4>Entre em contato por WhatsApp:</h4>
+      <div class="container-fluid">
+        <div class="row tit_duvidas">
+          <div class="col-12">
             </div>
             <div class="formulario">
+              <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-2 col-2">
-                                <i class="far fa-2x fa-user-circle"></i>
-                            </div>
-                            <div class="col-md-10 col-10">
-                                <input placeholder="Seu nome" id="wpp_nome" type="text" />
-                            </div>
-                        </div>
+                    <div class="col-md-2 col-2">
+                        <i class="far fa-2x fa-user-circle"></i>
+                    </div>
+                    <div class="col-md-10 col-10">
+                        <input placeholder="Seu nome" id="wpp_nome" type="text" />
                     </div>
                 </div>
+              </div>
             </div>
             <div class="formulario_msg">
                 <div class="row">
@@ -294,16 +290,16 @@
                     </div>
                 </div>
             </div>
-            <div class="div_btn">
-                <button class="btn btn_Padrao" id="btn_wpp">
-                    <b>
-                        <i class="fab fa-3x fa-whatsapp-square"></i>
-                    </b>
-                </button>
+            <div class="div_btn_wpp">
+              <button class="btn" id="btn_wpp">
+                <i class="fab fa-3x fa-whatsapp-square"></i>
+              </button>
             </div>
-        </div> 
+        </div>
+      </div> 
+    </div> 
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCatH1XCDn1Qd7MFtZBIUgU2pwGMFS4uWY&callback=initMap" type="text/javascript"></script>
+    
   </body>
 </html>
              

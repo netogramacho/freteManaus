@@ -140,7 +140,8 @@ display: flex;
 flex-wrap: wrap
 }
 .logos .logo{
-background-size: cover !important
+  background-size: cover !important;
+  width: 100%;
 }
 .logos .logo img {
   margin: auto;
@@ -179,123 +180,21 @@ background-size: cover !important
   margin: 40px 0 30px 0;
 }
 
-.contato {
-  background-color: #376493;
-  padding-bottom: 50px;
-}
-.contato h2{
-  color: #C6E2FF;
-}
-.contato h3 {
-  color: #C6E2FF;
-}
-.contato h4 {
-  color: #C6E2FF;
-  margin-bottom: 20px;
-}
-.formulario {
-  height: 50px;
-  width: 90%;
-  background-color: #C6E2FF;
-  margin-bottom: 2%;
-  padding: 5px 0;
-  border-radius: 10px;
-}
-.formulario .row, .formulario_msg .row {
-  margin: 0;
-}
-.formulario input {
-  float: right;
-  height: 40px;
-  width: 100%;
-  border: none;
-  margin-right: 5px;
-  background-color: #C6E2FF;
-}
-.formulario i, .formulario_msg i {
-  color: #223e5b;
-}
-.formulario svg, .formulario_msg svg {
-  color: #223e5b;
-}
-.formulario_msg {
-  height: 150px;
-  width: 90%;
-  background-color: #C6E2FF;
-  margin-bottom: 2%;
-  padding: 5px 0;
-  border-radius: 10px;
-  border: none;
-}
-.txt_Msg {
-    height: 140px;
-    width: 100%;
-    border: none;
-    resize: none;
-    padding: 0;
-    background-color: #C6E2FF;
-}
-.redes_sociais {
-  padding-top: 50px;
-}
-.redes_sociais a {
-  font-size: 28px;
-  color: #4169E1;
-}
-.redes_sociais a:hover {
-  color: #6495ED;
-}
-.redes_sociais img {
-  width: 100%;
-  margin-bottom: 10%;
-}
-
-.sep_direita {
-  border-right: 1px solid #C6E2FF;
-}
-
-#div_Mapa {
-  padding: 0;
-}
-#convenios, #div_Mapa, #cases {
-  border: none;
-}
-#map {
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-}
-
-#cases h2, #convenios h2 {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  text-align: center;
-}
 
 
 /* BOTÕES */
 .btn_Padrao {
   background-color: #223e5b;
-  border: 1px solid #dab3da;
+  border: 1px solid #4983c2;
   color: #fff!important;
 }
 .btn_Padrao:hover {
-  background-color: #DA70D6;
-  border: 1px solid #223e5b;
-  color: #223e5b!important;
+  background-color: #4983c2;
 }
 
 #btn_email {
   width: 30%;
   margin-left: 35%;
-}
-#btn_wpp {
-  margin-left: 45%;
-  width: 10%;
-  padding: 0;
-  color: #223e5b !important;
-  background-color: #fff;
-  border: 1px solid #fff;
 }
 #btn_wpp:hover {
   color:#DA70D6!important;
@@ -397,13 +296,52 @@ background-size: cover !important
   border-radius: 20%;
   width: 75px;
   height: 75px;
-  bottom: 25px;
-  right: 25px;
   cursor: pointer;
   z-index: 5;
 }
+.staticWppAnimation{
+  animation: wppToCenter 2s;
+}
+.staticWppAnimationVolta{
+  animation: wppToBack 2s;
+}
+.staticWppPosOne {
+  bottom: 25px;
+  right: 25px;
+}
+.staticWppPosTwo{
+  bottom: 300px;
+  right: 400px;
+}
+.staticWpp svg, .staticWpp i {
+  font-size: 75px;
+  color: #00e676;
+}
+.staticWpp svg:hover, .staticWpp i:hover {
+    color: #00984e;
+}
 
-.fundoModalWpp {
+.staticEmail {
+  position: fixed;
+  border-radius: 20%;
+  width: 75px;
+  height: 75px;
+  bottom: 25px;
+  left: 25px;
+  cursor: pointer;
+  z-index: 5;
+}
+.staticEmail svg, .staticEmail i {
+  font-size: 75px;
+  color: #ff4444;
+}
+.staticEmail svg:hover, .staticEmail i:hover {
+    color: #8B0000;
+}
+
+
+/* FUNDO MODAIS */
+.fundoModalWpp, .fundoModalEmail {
   background-color: #0000007a;
   text-align: center;
   position: fixed;
@@ -415,38 +353,121 @@ background-size: cover !important
   display: none;
 }
 
+/* MODAL WPP */
 .modalWpp {
   display: none;
+  background-color: #376493;
   position: fixed;
   z-index: 5;
-  width: 40%;
-  background-color: #fff;
+  width: 30%;
   opacity: 1;
-  top: calc(60% / 2);
-  right: calc((100% - 40%) / 2);
+  top: calc(45% / 2);
+  right: calc((100% - 30%) / 2);
   border-radius: 10px;
 }
-
-.staticWpp svg, .staticWpp i {
-  font-size: 75px;
+#btn_wpp {
+  margin-left: 45%;
+  width: 10%;
+  padding: 0;
+  background-color: transparent;
+}
+.div_btn_wpp {
+  width: 100%;
+}
+#btn_wpp svg {
   color: #00e676;
 }
-
-.staticWpp svg:hover, .staticWpp i:hover {
-    color: #00984e;
+#btn_wpp svg:hover {
+  color: #00984e;
 }
-.modalWpp .txt_Msg {
-    height: 100px;
-}
-.modalWpp .formulario_msg {
-    height: 120px;
-}
-
 .modalWpp h4 {
-    margin-top: 3%;
-    text-align: center;
+  color: #fff;
+  margin-top: 3%;
+  text-align: center;
+}
+.modalWpp .formulario input {
+  float: right;
+  height: 40px;
+  width: 100%;
+  border: none;
+  margin-right: 5px;
+  background-color: #C6E2FF;
 }
 
+
+/* MODAL EMAIL */
+.formulario {
+  height: 50px;
+  width: 100%;
+  background-color: #C6E2FF;
+  margin-bottom: 2%;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+.formulario .row, .formulario_msg .row {
+  margin: 0;
+}
+.formulario input {
+  float: right;
+  height: 40px;
+  width: 100%;
+  border: none;
+  margin-right: 5px;
+  background-color: #C6E2FF;
+}
+.formulario i, .formulario_msg i {
+  color: #223e5b;
+}
+.formulario svg, .formulario_msg svg {
+  color: #223e5b;
+  font-size: 30px;
+  margin-top: 5px;
+}
+.formulario_msg {
+  height: 150px;
+  width: 100%;
+  background-color: #C6E2FF;
+  margin-bottom: 2%;
+  padding: 5px 0;
+  border-radius: 10px;
+  border: none;
+}
+.txt_Msg {
+    height: 140px;
+    width: 100%;
+    border: none;
+    resize: none;
+    padding: 0;
+    background-color: #C6E2FF;
+}
+.modalEmail {
+  display: none;
+  background-color: #376493;
+  position: fixed;
+  z-index: 5;
+  width: 30%;
+  opacity: 1;
+  top: calc(45% / 2);
+  right: calc((100% - 30%) / 2);
+  border-radius: 10px;
+}
+.modalEmail h4 {
+  color: #fff;
+  margin-top: 3%;
+}
+.close-x {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.close-x svg{
+  color: #ffffffad;
+  font-size: 25px;
+}
+.close-x svg:hover{
+  color: #ffffff;
+  cursor: pointer;
+}
 
 
 /* MUDANDO PROPRIEDADES DO SLICK */
@@ -692,4 +713,13 @@ background-size: cover !important
 @keyframes arrowToBottom {
   from {bottom: 25px;}
   to {bottom: 0px;}
+}
+
+@keyframes wppToCenter {
+  from {bottom: 25px; right: 25px;}
+  to {bottom: 300px; right: 400px;}
+}
+@keyframes wppToBack {
+  from {bottom: 300px; right: 400px;}
+  to {bottom: 25px; right: 25px;}
 }
