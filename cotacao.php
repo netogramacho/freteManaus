@@ -6,11 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
         <link rel="shortcut icon" href="assets/imagens/barco.ico">
-
-
-
-
-
+        
         <!-- IMPORTANDO CSS -->
       <link rel="stylesheet" type="text/css" href="assets/plugins/jquery/jquery-ui.min.css"/>
       <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
