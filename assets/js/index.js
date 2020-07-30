@@ -4,6 +4,7 @@ $(document).ready(function () {
     setTimeout(() => {
         iniciarComponetes();
         iniciarMascara();
+        iniciarRodape();
         AOS.init();
     }, 500);
 });
@@ -12,13 +13,14 @@ var DIRETORIO = window.location.href + "/includes/";
 
 
 function iniciarComponetes() {
+    //ESCONDER SETA NO SCROLL
     $(window).scroll(function () {
         if ($(document).scrollTop() >= 50) {
             $('.arrowBottom').fadeOut();
         } else {
             $('.arrowBottom').fadeIn();
         }
-    })
+    });
 
     $('.menu_toggle').on('click', function () {
         $('.menu_txt').slideToggle('fast');
@@ -37,23 +39,24 @@ function iniciarComponetes() {
     });
     $('.staticWpp').on('click', function() {
         abrirModalWpp();
+        voltaAnimacaoContato();
     });
     $('.staticEmail').on('click', function() {
         abrirModalEmail();
+        voltaAnimacaoContato();
     });
-    $('.fundoModalWpp').on('click', function() {
+    $('.fundoContato').on('click', function(){
+        voltaAnimacaoContato();
+    });
+    $('.fundoModal').on('click', function() {
          $(this).fadeOut('fast');
          $('.modalWpp').fadeOut('fast');
+         $('.modalEmail').fadeOut('fast');
     });
     $('.close-x').on('click', function(){
-        $('.fundoModalWpp').fadeOut('fast');
+        $('.fundoModal').fadeOut('fast');
         $('.modalWpp').fadeOut('fast');
-        $('.fundoModalEmail').fadeOut('fast');
         $('.modalEmail').fadeOut('fast');
-    });
-    $('.fundoModalEmail').on('click', function() {
-         $(this).fadeOut('fast');
-         $('.modalEmail').fadeOut('fast');
     });
 
     $('.btn_agende_aqui').on('click', function(){
@@ -107,6 +110,7 @@ function carousel() {
     setTimeout(() => {
         $('.first-item').slick({
           arrows: true,
+          speed: 1000,
         });
         $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
         $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
@@ -196,11 +200,11 @@ function enviarWpp() {
 }
 
 function abrirModalWpp() {
-    $('.fundoModalWpp').fadeToggle('fast');
+    $('.fundoModal').fadeToggle('fast');
     $('.modalWpp').fadeToggle('fast');
 }
 function abrirModalEmail(){
-    $('.fundoModalEmail').fadeToggle('fast');
+    $('.fundoModal').fadeToggle('fast');
     $('.modalEmail').fadeToggle('fast');
 }
 
@@ -285,20 +289,50 @@ function scrollToQuemSomos(){
 }
 
 
-function teste(){
+function exibirContato(){
+    $('.fundoContato').fadeIn('fast');
     $('.staticWpp').addClass('staticWppAnimation');
-    setTimeout(() => {
-        $('.staticWpp').addClass('staticWppPosTwo');
-        $('.staticWpp').removeClass('staticWppPosOne');
-        $('.staticWpp').removeClass('staticWppAnimationVolta');
-    }, 2000);
+    $('.staticWpp').removeClass('staticWppAnimationVolta');
+    $('.staticWpp').removeClass('staticWppPosOne');
+    $('.staticWpp').addClass('staticWppPosTwo');
+
+
+    $('.staticEmail').addClass('staticEmailAnimation');
+    $('.staticEmail').removeClass('staticEmailAnimationVolta');
+    $('.staticEmail').removeClass('staticEmailPosOne');
+    $('.staticEmail').addClass('staticEmailPosTwo');
+
+
+    $('.staticEmail').addClass('voltarAnimacao');
+    $('.staticWpp').addClass('voltarAnimacao');
 }
 
-function volta(){
-    $('.staticWpp').addClass('staticWppAnimationVolta');
-    setTimeout(() => {
-        $('.staticWpp').addClass('staticWppPosOne');
-        $('.staticWpp').removeClass('staticWppPosTwo');
+function voltaAnimacaoContato(){
+    $('.fundoContato').fadeOut('fast');
+    if ($('.staticWpp').hasClass('voltarAnimacao')) {
+        $('.staticWpp').addClass('staticWppAnimationVolta');
         $('.staticWpp').removeClass('staticWppAnimation');
-    }, 2000);
+        $('.staticWpp').removeClass('staticWppPosTwo');
+        $('.staticWpp').addClass('staticWppPosOne');
+    }
+
+
+    if ($('.staticEmail').hasClass('voltarAnimacao')) {   
+        $('.staticEmail').addClass('staticEmailAnimationVolta');
+        $('.staticEmail').removeClass('staticEmailAnimation');
+        $('.staticEmail').removeClass('staticEmailPosTwo');
+        $('.staticEmail').addClass('staticEmailPosOne');
+    }
+
+
+    $('.staticEmail').removeClass('voltarAnimacao');
+    $('.staticWpp').removeClass('voltarAnimacao');
+}
+
+function iniciarRodape(){
+    $('.corpo').css('min-height', (window.innerHeight - parseInt($('#menu').css('height')) - parseInt($('.rodape').css('height'))))
+}
+
+function voltarTopo(){
+    $("html, body").delay(200).animate({scrollTop: 0}, 1000);
 }
