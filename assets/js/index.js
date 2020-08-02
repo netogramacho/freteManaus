@@ -148,16 +148,6 @@ function verificaCampoVazio(objDM, classe) {
 }
 
 
-function validateEmail(sEmail) {
-
-    var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-    if (filter.test(sEmail)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 function iniciarMascara() {
     var SPMaskBehavior = function (val) {
@@ -170,6 +160,82 @@ function iniciarMascara() {
     $('.sp_celphones').mask(SPMaskBehavior, spOptions);
 }
 
+//ABRE E FECHA AS MODAIS DE CONTATO
+function abrirModalWpp() {
+    $('.fundoModal').fadeToggle('fast');
+    $('.modalWpp').fadeToggle('fast');
+}
+function abrirModalEmail(){
+    $('.fundoModal').fadeToggle('fast');
+    $('.modalEmail').fadeToggle('fast');
+}
+
+
+
+//SCROLL PARA FORA DA PAGINA DE COMECO (SETA PARA BAIXO)
+function scrollToQuemSomos(){
+    $("html, body").delay(200).animate({scrollTop: (window.innerHeight - parseInt($('#menu').css('height')))}, 1000);
+}
+
+
+
+
+//ANIMACAO DE BOTOES ESTATICOS PARA O CENTRO
+function exibirContato(){
+    $('.fundoContato').fadeIn('fast');
+    $('.staticWpp').addClass('staticWppAnimation');
+    $('.staticWpp').removeClass('staticWppAnimationVolta');
+    $('.staticWpp').removeClass('staticWppPosOne');
+    $('.staticWpp').addClass('staticWppPosTwo');
+
+
+    $('.staticEmail').addClass('staticEmailAnimation');
+    $('.staticEmail').removeClass('staticEmailAnimationVolta');
+    $('.staticEmail').removeClass('staticEmailPosOne');
+    $('.staticEmail').addClass('staticEmailPosTwo');
+
+
+    $('.staticEmail').addClass('voltarAnimacao');
+    $('.staticWpp').addClass('voltarAnimacao');
+}
+
+//ANIMACAO DE BOTOES ESTATICOS PARA A POSICAO ORIGINAL
+function voltaAnimacaoContato(){
+    $('.fundoContato').fadeOut('fast');
+    if ($('.staticWpp').hasClass('voltarAnimacao')) {
+        $('.staticWpp').addClass('staticWppAnimationVolta');
+        $('.staticWpp').removeClass('staticWppAnimation');
+        $('.staticWpp').removeClass('staticWppPosTwo');
+        $('.staticWpp').addClass('staticWppPosOne');
+    }
+
+
+    if ($('.staticEmail').hasClass('voltarAnimacao')) {   
+        $('.staticEmail').addClass('staticEmailAnimationVolta');
+        $('.staticEmail').removeClass('staticEmailAnimation');
+        $('.staticEmail').removeClass('staticEmailPosTwo');
+        $('.staticEmail').addClass('staticEmailPosOne');
+    }
+
+
+    $('.staticEmail').removeClass('voltarAnimacao');
+    $('.staticWpp').removeClass('voltarAnimacao');
+}
+
+
+//DEFINE UM TAMANHO MINIMO PARA O CORPO DO SITE
+function iniciarRodape(){
+    $('.corpo').css('min-height', (window.innerHeight - parseInt($('#menu').css('height')) - parseInt($('.rodape').css('height'))))
+}
+
+
+//SCROLL PARA O TOPO DO SITE
+function voltarTopo(){
+    $("html, body").delay(200).animate({scrollTop: 0}, 1000);
+}
+
+
+//ENVIO DE MENSAGEM PERSONALIZADA WPP
 function enviarWpp() {
     $('#btn_wpp').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
     $('#btn_wpp').attr('disabled', 'disabled');
@@ -196,29 +262,17 @@ function enviarWpp() {
         $('#btn_wpp').removeAttr('disabled');
         clearInputs('wpp')
     }
-
-}
-
-function abrirModalWpp() {
-    $('.fundoModal').fadeToggle('fast');
-    $('.modalWpp').fadeToggle('fast');
-}
-function abrirModalEmail(){
-    $('.fundoModal').fadeToggle('fast');
-    $('.modalEmail').fadeToggle('fast');
 }
 
 
+//ENVIO DE EMAIL
 function enviarEmailContato(){
     $('#btn_email').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
     $('#btn_email').attr('disabled', 'disabled');
 
-    objEmail.nome = $('#email_nome').val();
-    objEmail.telefone = $('#email_telefone').val();
-    objEmail.email = $('#email_email').val();
-    objEmail.mensagem = $('#email_msg').val();
+    
 
-    if (!verificaCampoVazio(objEmail, 'email')) {
+    if (!conferirForm("formEmail")) {
         swal({
             title: 'Atenção!',
             text: "Preencha os campos em vermelho.",
@@ -282,57 +336,4 @@ function enviarEmailContato(){
         });
     }
     clearInputs('email');
-}
-
-function scrollToQuemSomos(){
-    $("html, body").delay(200).animate({scrollTop: (window.innerHeight - parseInt($('#menu').css('height')))}, 1000);
-}
-
-
-function exibirContato(){
-    $('.fundoContato').fadeIn('fast');
-    $('.staticWpp').addClass('staticWppAnimation');
-    $('.staticWpp').removeClass('staticWppAnimationVolta');
-    $('.staticWpp').removeClass('staticWppPosOne');
-    $('.staticWpp').addClass('staticWppPosTwo');
-
-
-    $('.staticEmail').addClass('staticEmailAnimation');
-    $('.staticEmail').removeClass('staticEmailAnimationVolta');
-    $('.staticEmail').removeClass('staticEmailPosOne');
-    $('.staticEmail').addClass('staticEmailPosTwo');
-
-
-    $('.staticEmail').addClass('voltarAnimacao');
-    $('.staticWpp').addClass('voltarAnimacao');
-}
-
-function voltaAnimacaoContato(){
-    $('.fundoContato').fadeOut('fast');
-    if ($('.staticWpp').hasClass('voltarAnimacao')) {
-        $('.staticWpp').addClass('staticWppAnimationVolta');
-        $('.staticWpp').removeClass('staticWppAnimation');
-        $('.staticWpp').removeClass('staticWppPosTwo');
-        $('.staticWpp').addClass('staticWppPosOne');
-    }
-
-
-    if ($('.staticEmail').hasClass('voltarAnimacao')) {   
-        $('.staticEmail').addClass('staticEmailAnimationVolta');
-        $('.staticEmail').removeClass('staticEmailAnimation');
-        $('.staticEmail').removeClass('staticEmailPosTwo');
-        $('.staticEmail').addClass('staticEmailPosOne');
-    }
-
-
-    $('.staticEmail').removeClass('voltarAnimacao');
-    $('.staticWpp').removeClass('voltarAnimacao');
-}
-
-function iniciarRodape(){
-    $('.corpo').css('min-height', (window.innerHeight - parseInt($('#menu').css('height')) - parseInt($('.rodape').css('height'))))
-}
-
-function voltarTopo(){
-    $("html, body").delay(200).animate({scrollTop: 0}, 1000);
 }
