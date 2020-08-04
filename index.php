@@ -8,36 +8,10 @@
     <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
     <link rel="shortcut icon" href="assets/imagens/barco.ico">
 
+    <?php
+      require_once("importsJsCss.php");
+    ?>
 
-
-
-
-    <!-- IMPORTANDO CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/jquery/jquery-ui.min.css"/>
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/plugins/sweetalert2/sweetalert2.min.css"/>
-    <link href="assets/plugins/slick/slick/slick.css" rel="stylesheet"/>
-    <link href="assets/plugins/slick/slick/slick-theme.css" rel="stylesheet"/>
-    <link href="assets/plugins/fontawesome/css/all.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/index.css"/>
-    <link rel="stylesheet" href="assets/plugins/jquerymodal/jquery.modal.min.css" />
-    <link href="assets/plugins/aos/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.css"/>
-
-
-    <!-- IMPORTANDO JS -->
-    <script src="assets/plugins/jquery/jquery-3.1.1.min.js"></script>
-    <script src="assets/plugins/jquery/jquery-ui.min.js"></script>
-    <script src="assets/plugins/jquery/jquery-ui.custom.min.js"></script>
-    <script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <script src="assets/plugins/fontawesome/js/all.js"></script>
-    <script src="assets/plugins/slick/slick/slick.min.js"></script>
-    <script src="assets/plugins/mask/jquery.mask.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/plugins/jquerymodal/jquery.modal.min.js"></script>
-    <script src="assets/plugins/aos/aos.js"></script>
-
-    <script src="assets/js/index.js"></script>
   </head>
   <body>
     <!-- MENU -->
@@ -67,7 +41,9 @@
               FRETE FÁCIL MANAUS
             </h2>
             <h6>
-              UMA MANEIRA DESCOMPLICADA PARA SUA COTAÇÃO
+              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! 
+              </br>
+              TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
             </h6>
             <p>
               Operamos com cargas fechadas e fracionadas com origem nos Estados do Rio Grande do Sul, Santa Catarina, Paraná, São Paulo, Minas Gerais, Bahia e Pernambuco com destino aos Estados do Amazonas e Roraima, 
@@ -89,7 +65,7 @@
           </div>
           <div data-aos="fade-up" class="btn-cotacao">
             <div class="div-btn-cotacao">
-              <b>Fazer cotação</b>
+              <a href="cotacao.php"><b>Fazer cotação</b></a>
             </div>
           </div>
         </div>
@@ -106,10 +82,10 @@
                 <h2 class="card-tit-padding">
                   CARGA FRACIONADA
                 </h2>
-                <p>Cargas que não atingem a capacidade do contêiner.</p>
+                <p>Cargas que não atingem a capacidade do veículo.</p>
               </div>
               <div class="item-btn">
-                <b>Saiba mais</b>
+                <a href="" data-toggle="modal" data-target="#fracionada"><b>Saiba mais</b></a>
               </div>
             </div>
           </div>
@@ -126,7 +102,7 @@
                 <p>Cargas que exigem controle de temperatura.</p>
               </div>
               <div class="item-btn">
-                <b>Saiba mais</b>
+                <a href="" data-toggle="modal" data-target="#refrigerada"><b>Saiba mais</b></a>
               </div>
             </div>
           </div>
@@ -143,27 +119,93 @@
                 <p>Cargas que não exigem controle de temperatura.</p>
               </div>
               <div class="item-btn">
-                <b>Saiba mais</b>
+                <a href="" data-toggle="modal" data-target="#seca"><b>Saiba mais</b></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- 
-          TODO
 
-      <div class="row card-parceiros">
-        <div class="container-fluid">
-          <div data-aos="fade-down" class="txt-parceiros">
-            <h2>
-              PARCEIROS
-            </h2>
-            <p>CARROSEL</p>
-          </div>
+      <!-- MODAL CARGA FRACIONADA -->
+  <div class="modal fade saibaMais" id="fracionada" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">CARGA FRACIONADA</h4>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <p>
+            O transporte de cargas facionadas acontece quando deseja-se transportar uma pequena 
+            quantidade de mercadorias que não atinge a capacidade do contêiner utilizado para transporte, 
+            dessa forma, é feito o fracionamento com outras mercadorias do mesmo segmento. Desta maneira, 
+            em uma operação são agrupados vários embarques de clientes diferentes.  Nesta modalidade, as 
+            cargas podem ser paletizadas (acondicionadas em palets), caixarias, fardos ou peças avulsas.
+          </p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
         </div>
       </div>
       
-      -->
+    </div>
+  </div>
+
+  <!-- MODAL CARGA REFRIGERADA -->
+  <div class="modal fade saibaMais" id="refrigerada" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">CARGA REFRIGERADA OU CONGELADA</h4>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <p>
+            As cargas refrigeradas ou congeladas exigem controle de temperatura, sendo necessário a 
+            refrigeração para manter a integridade do produto em todo o percurso, como carnes e 
+            frangos congelados, legumes e verduras refrigerados.
+          </p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<!-- MODAL CARGA SECA -->
+  <div class="modal fade saibaMais" id="seca" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">CARGA SECA</h4>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <p>
+            As denominadas 'cargas secas', podem ser perecíveis ou não, como o caso de alimentos 
+            que não necessitam de refrigeração, a exemplo do café e dos grãos. Além disso, 
+            equipamentos e mercadorias em geral, ou seja, produtos não perecíveis também podem ser 
+            transportados nesta modalidade.
+          </p>
+        </div>
+        <hr>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 
 

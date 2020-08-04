@@ -131,23 +131,30 @@ function validaCpfCnpj(val) {
  }
 
 function conferirForm(identificacao){
+    var retorno = true;
     dadosForm = $('#' + identificacao).serializeArray();
     for (i = 0; i < dadosForm.length; i++) {
         if (dadosForm[i].value == "") {
-            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').css('border', '2px solid red')
-            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').css('border', '2px solid red')
+            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+            $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
             retorno = false;
         } else {
-            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').css('border', 'none')
-            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').css('border', 'none')
+            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
+            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
+            $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
         } 
         if (dadosForm[i].name == "email") {
             if(!validateEmail(dadosForm[i].value)){
+                $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+                $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
                 retorno = false;
             }
         }     
         if (dadosForm[i].name == "cpf" || dadosForm[i].name == "cnpj") {
             if(!validaCpfCnpj(dadosForm[i].value)){
+                $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+                $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
                 retorno = false;
             }
         }

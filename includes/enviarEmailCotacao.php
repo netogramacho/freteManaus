@@ -12,7 +12,7 @@
         
         //EMAIL PARA ANDRESSA
         //CARREGANDO ARQUIVO HTML E FAZENDO ALTERACOES 
-        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "contatoEmpresa.html");
+        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "cotacaoEmpresa.html");
         foreach ($arrDados as $array) {
             $corpoEmail = str_replace("[" . $array->name . "]", $array->value, $corpoEmail);
         }
@@ -24,7 +24,7 @@
             "neto.paulo.po@gmail.com"
         );
     
-        $assunto = "Novo contato de cliente";
+        $assunto = "Nova cotação de cliente";
     
         $email = new Cls_email();
         $email->assunto = $assunto;
@@ -34,7 +34,7 @@
 
         //EMAIL CLIENTE
 
-        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "contatoCliente.html");
+        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "cotacaoCliente.html");
         
         
         $enderecos = array();
@@ -47,7 +47,7 @@
         }
 
     
-        $assunto = "Recebemos seu contato";
+        $assunto = "Recebemos seu pedido de cotação";
     
         $email = new Cls_email();
         $email->assunto = $assunto;

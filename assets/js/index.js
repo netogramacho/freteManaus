@@ -9,7 +9,7 @@ $(document).ready(function () {
     }, 500);
 });
 var phone = '5519988700830';
-var DIRETORIO = window.location.href + "/includes/";
+var DIRETORIO = "includes/";
 
 
 function iniciarComponetes() {
@@ -38,25 +38,15 @@ function iniciarComponetes() {
         enviarWpp();
     });
     $('.staticWpp').on('click', function() {
-        abrirModalWpp();
         voltaAnimacaoContato();
     });
     $('.staticEmail').on('click', function() {
-        abrirModalEmail();
         voltaAnimacaoContato();
     });
     $('.fundoContato').on('click', function(){
         voltaAnimacaoContato();
-    });
-    $('.fundoModal').on('click', function() {
-         $(this).fadeOut('fast');
-         $('.modalWpp').fadeOut('fast');
-         $('.modalEmail').fadeOut('fast');
-    });
-    $('.close-x').on('click', function(){
-        $('.fundoModal').fadeOut('fast');
-        $('.modalWpp').fadeOut('fast');
-        $('.modalEmail').fadeOut('fast');
+        $('body').css('overflow', '');
+        $('body').css('padding-right', '');
     });
 
     $('.btn_agende_aqui').on('click', function(){
@@ -159,19 +149,6 @@ function iniciarMascara() {
     };
     $('.sp_celphones').mask(SPMaskBehavior, spOptions);
 }
-
-//ABRE E FECHA AS MODAIS DE CONTATO
-function abrirModalWpp() {
-    $('.fundoModal').fadeToggle('fast');
-    $('.modalWpp').fadeToggle('fast');
-}
-function abrirModalEmail(){
-    $('.fundoModal').fadeToggle('fast');
-    $('.modalEmail').fadeToggle('fast');
-}
-
-
-
 //SCROLL PARA FORA DA PAGINA DE COMECO (SETA PARA BAIXO)
 function scrollToQuemSomos(){
     $("html, body").delay(200).animate({scrollTop: (window.innerHeight - parseInt($('#menu').css('height')))}, 1000);
@@ -182,6 +159,8 @@ function scrollToQuemSomos(){
 
 //ANIMACAO DE BOTOES ESTATICOS PARA O CENTRO
 function exibirContato(){
+    $('body').css('padding-right', '15px');
+    $('body').css('overflow', 'hidden');
     $('.fundoContato').fadeIn('fast');
     $('.staticWpp').addClass('staticWppAnimation');
     $('.staticWpp').removeClass('staticWppAnimationVolta');
@@ -253,60 +232,45 @@ function enviarWpp() {
             confirmButtonText: 'Ok',
         }).then(function () {
             $('#btn_wpp').html('<i class="fab fa-3x fa-whatsapp-square"></i>');
-            $('#btn_wpp').removeAttr('disabled');
+            $('#btn_wpp').attr('disabled', false);
         });
         return
     } else {
         window.open('https://api.whatsapp.com/send?phone=' + phone + '&text=Olá, me chamo ' + objWpp.nome + ' e gostaria de saber: ' + objWpp.mensagem, '_blank');
         $('#btn_wpp').html('<i class="fab fa-3x fa-whatsapp-square"></i>');
-        $('#btn_wpp').removeAttr('disabled');
+        $('#btn_wpp').attr('disabled', false);
         clearInputs('wpp')
     }
 }
 
 
-//ENVIO DE EMAIL
+//ENVIO DE EMAIL DE CONTATO
 function enviarEmailContato(){
     $('#btn_email').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
-    $('#btn_email').attr('disabled', 'disabled');
-
-    
-
+    $('#btn_email').attr('disabled', true);
+    var dados = $("#formEmail").serializeArray();
+    console.log(dados);
     if (!conferirForm("formEmail")) {
         swal({
             title: 'Atenção!',
-            text: "Preencha os campos em vermelho.",
+            text: "Preencha corretamente os campos em vermelho.",
             type: 'warning',
             showCancelButton: false,
             confirmButtonColor: '#66AAD7',
             confirmButtonText: 'Ok',
         }).then(function () {
             $('#btn_email').html('<b>Enviar</b>');
-            $('#btn_email').removeAttr('disabled');
+            $('#btn_email').attr('disabled', false);
         });
-        return
-    } else if (!validateEmail(objEmail.email)) {
-        $('#email_email').css('border', '1px solid red');
-        swal({
-            title: 'Atenção!',
-            text: "Email Incorreto, preencha novamente.",
-            type: 'warning',
-            showCancelButton: false,
-            confirmButtonColor: '#66AAD7',
-            confirmButtonText: 'Ok',
-        }).then(function () {
-            $('#btn_email').html('<b>Enviar</b>');
-            $('#btn_email').removeAttr('disabled');
-        });
-        return
+        return false;
     } else {
         $.ajax({
             type: "POST",
             url: DIRETORIO + "enviarEmailContato.php",
-            contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: "{}",
+            data: {data: JSON.stringify(dados)},
         }).done(function (ret) {
+            clearInputs('email');
             swal({
                 title: ret.title,
                 text: ret.message,
@@ -319,7 +283,7 @@ function enviarEmailContato(){
                         clearInputs('email');
                     }
                     $('#btn_email').html('<b>Enviar</b>');
-                    $('#btn_email').removeAttr('disabled');
+                    $('#btn_email').attr('disabled', false);
             });
         }).fail(function (response) {
             swal({
@@ -331,9 +295,66 @@ function enviarEmailContato(){
                 confirmButtonText: 'Ok',
                 }).then(function () {
                 $('#btn_email').html('<b>Enviar</b>');
-                $('#btn_email').removeAttr('disabled');
+                $('#btn_email').attr('disabled', false);
             });
         });
     }
-    clearInputs('email');
+}
+
+
+//ENVIO DE EMAIL DE CONTATO
+function enviarEmailCotacao(){
+    $('#btn_cotacao').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
+    $('#btn_cotacao').attr('disabled', true);
+    var dados = $("#formCotacao").serializeArray();
+    console.log(dados);
+    if (!conferirForm("formCotacao")) {
+        swal({
+            title: 'Atenção!',
+            text: "Preencha corretamente os campos em vermelho.",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#66AAD7',
+            confirmButtonText: 'Ok',
+        }).then(function () {
+            $('#btn_cotacao').html('<b>Enviar</b>');
+            $('#btn_cotacao').attr('disabled', false);
+        });
+        return false;
+    } else {
+        $.ajax({
+            type: "POST",
+            url: DIRETORIO + "enviarEmailCotacao.php",
+            dataType: "json",
+            data: {data: JSON.stringify(dados)},
+        }).done(function (ret) {
+            clearInputs('email');
+            swal({
+                title: ret.title,
+                text: ret.message,
+                type: ret.type,
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                    if (ret.sucesso) {
+                        clearInputs('email');
+                    }
+                    $('#btn_cotacao').html('<b>Enviar</b>');
+                    $('#btn_cotacao').attr('disabled', false);
+            });
+        }).fail(function (response) {
+            swal({
+                title: 'Erro!',
+                text: "Ocorreu um erro ao enviar mensagem.",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                $('#btn_cotacao').html('<b>Enviar</b>');
+                $('#btn_cotacao').attr('disabled', false);
+            });
+        });
+    }
 }
