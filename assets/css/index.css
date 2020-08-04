@@ -515,9 +515,6 @@ flex-wrap: wrap
 .div-img-frigorifica{
   text-align: right;
 }
-.img-frigorifica {
-  width: 100%;
-}
 
 /*CARD PERSONALIZADO*/
 
@@ -566,6 +563,8 @@ flex-wrap: wrap
 }
 .item-img, .item-img img {
   border: 3px solid transparent;
+  max-height: 225px;
+  text-align: center;
 }
 
 
@@ -606,6 +605,9 @@ flex-wrap: wrap
   color: #223e5bad;
   font-family: BlackOblique;
   text-align: center;
+}
+.img-quem-somos {
+  width: 100%;
 }
 
 .quem-somos:hover{

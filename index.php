@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Frete para Manaus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
+    
     <link rel="shortcut icon" href="assets/imagens/barco.ico">
 
     <?php
@@ -27,7 +27,10 @@
                       <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
                     </div>
                     <div class="logo">
-                      <img class="logoImg" src="assets/imagens/barcoContainer.png" alt="">
+                      <img class="logoImg" src="assets/imagens/caminhoes.jpeg" alt="">
+                    </div>
+                    <div class="logo">
+                      <img class="logoImg" src="assets/imagens/maca_palets.jpeg" alt="">
                     </div>
                   </div>
                   <i onclick="scrollToQuemSomos()" class="fas fa-arrow-down arrowBottom"></i>
@@ -51,7 +54,7 @@
               </p>
           </div>
           <div data-aos="fade-left" class="col-md-4 quem-somos-img">
-            <img class="img-frigorifica" src="assets/imagens/cargueiro.jpg">
+            <img class="img-quem-somos" src="assets/imagens/cargueiro.jpg">
           </div>
         </div>
       </div>
@@ -75,7 +78,7 @@
           <div class="col-md-4">
             <div data-aos="fade-down-right" class="card-pers">
               <div class="item-img">
-                <img class="img-frigorifica" src="assets/imagens/cargueiro.jpg">
+                <img class="img-frigorifica" src="assets/imagens/caminhao_metade.jpg">
               </div>
               <hr>
               <div class="item-text">
@@ -109,7 +112,7 @@
           <div class="col-md-4">
             <div data-aos="fade-down-left" class="card-pers">
               <div class="item-img">
-                <img class="img-frigorifica" src="assets/imagens/cargueiro.jpg">
+                <img class="img-frigorifica" src="assets/imagens/caminhao_cheio.jpg">
               </div>
               <hr>
               <div class="item-text">
