@@ -20,17 +20,23 @@
     ?>
     <div class="corpo">
       <div class="row">
-          <div class="col-md-12 col-sm-12 col-12">
-              <div data-aos="fade-right" id="convenios">
+          <div>
+              <div id="convenios">
                   <div id="logos" class="first-item logos">
                     <div class="logo">
-                      <img class="logoImg" src="assets/imagens/PortoContainerExportacao.jpg" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/caminhoes.jpeg" alt="">
-                    </div>
-                    <div class="logo">
-                      <img class="logoImg" src="assets/imagens/maca_palets.jpeg" alt="">
+                      <div class="titulo-principal">
+                        <h3>
+                          CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO!
+                          </br>
+                          TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
+                        </h3>
+                        <a href="cotacao.php">
+                          <div class="btn-principal">
+                            <b>Fazer Cotacao</b>
+                          </div>
+                        </a>
+                      </div>
+                      <img class="logoImg" src="assets/imagens/img-carrosel-estrada.jpg" alt="">
                     </div>
                   </div>
                   <i onclick="scrollToQuemSomos()" class="fas fa-arrow-down arrowBottom"></i>
@@ -54,7 +60,7 @@
               </p>
           </div>
           <div data-aos="fade-left" class="col-md-4 quem-somos-img">
-            <img class="img-quem-somos" src="assets/imagens/cargueiro.jpg">
+            <img class="img-quem-somos" src="assets/imagens/img-porto.jpg">
           </div>
         </div>
       </div>
@@ -67,9 +73,11 @@
             <p>FAÇA SUA COTAÇÃO GRÁTIS E SEM COMPROMISSO!</p>
           </div>
           <div data-aos="fade-up" class="btn-cotacao">
-            <div class="div-btn-cotacao">
-              <a href="cotacao.php"><b>Fazer cotação</b></a>
-            </div>
+            <a href="cotacao.php">
+              <div class="div-btn-cotacao">
+                <b>Fazer cotação</b>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -78,7 +86,7 @@
           <div class="col-md-4">
             <div data-aos="fade-down-right" class="card-pers">
               <div class="item-img">
-                <img class="img-frigorifica" src="assets/imagens/caminhao_metade.jpg">
+                <img class="img-frigorifica" src="assets/imagens/img-empilhadera.jpg">
               </div>
               <hr>
               <div class="item-text">

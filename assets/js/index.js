@@ -1,12 +1,10 @@
 $(document).ready(function () {
     //ATRASA INICIALIZACAO POR CAUSA DO SLICK - ELE PRECISA INICIAR PRIMEIRO
-    carousel();
-    setTimeout(() => {
-        iniciarComponetes();
-        iniciarMascara();
-        iniciarRodape();
-        AOS.init();
-    }, 500);
+    //carousel();
+    iniciarComponetes();
+    iniciarMascara();
+    iniciarRodape();
+    AOS.init();
 });
 var phone = '5519988700830';
 var DIRETORIO = "includes/";
@@ -21,6 +19,12 @@ function iniciarComponetes() {
             $('.arrowBottom').fadeIn();
         }
     });
+
+    //AJUSTAR IMAGEM PRINCIPAL NO RESIZE
+    $(window).resize(function(){
+        $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
+    });
+    $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
 
     $('.menu_toggle').on('click', function () {
         $('.menu_txt').slideToggle('fast');
@@ -94,18 +98,18 @@ function clearInputs(classe) {
 }
 
 
-function carousel() {
-    $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
-    //$('.logos, .logo img').css('width', window.innerWidth);
-    setTimeout(() => {
-        $('.first-item').slick({
-          arrows: true,
-          speed: 1000,
-        });
-        $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
-        $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
-    }, 500);
-}
+// function carousel() {
+//     $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
+//     //$('.logos, .logo img').css('width', window.innerWidth);
+//     setTimeout(() => {
+//         $('.first-item').slick({
+//           arrows: true,
+//           speed: 1000,
+//         });
+//         $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
+//         $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
+//     }, 500);
+// }
 
 
 function verificaCampoVazio(objDM, classe) {
