@@ -19,7 +19,7 @@
       require_once("menu.php");
     ?>
     <div class="corpo">
-      <div class="row">
+      <div>
           <div>
               <div id="convenios">
                   <div id="logos" class="first-item logos">
@@ -44,47 +44,9 @@
           </div>
       </div>
       <div class="container-fluid">
-        <div class="row quem-somos">
-          <div data-aos="fade-right" class="col-md-8 quem-somos-txt">
-            <h2>
-              FRETE FÁCIL MANAUS
-            </h2>
-            <h6>
-              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! 
-              </br>
-              TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
-            </h6>
-            <p>
-              Operamos com cargas fechadas e fracionadas com origem nos Estados do Rio Grande do Sul, Santa Catarina, Paraná, São Paulo, Minas Gerais, Bahia e Pernambuco com destino aos Estados do Amazonas e Roraima, 
-              principalmente para Manaus e Boa Vista e possuímos um serviço especial, de fácil cotação.
-              </p>
-          </div>
-          <div data-aos="fade-left" class="col-md-4 quem-somos-img">
-            <img class="img-quem-somos" src="assets/imagens/img-porto.jpg">
-          </div>
-        </div>
-      </div>
-      <div class="row card-cotacao">
-        <div class="container-fluid">
-          <div data-aos="fade-down" class="txt-cotacao">
-            <h2>
-              FAÇA SUA COTAÇÃO
-            </h2>
-            <p>FAÇA SUA COTAÇÃO GRÁTIS E SEM COMPROMISSO!</p>
-          </div>
-          <div data-aos="fade-up" class="btn-cotacao">
-            <a href="cotacao.php">
-              <div class="div-btn-cotacao">
-                <b>Fazer cotação</b>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
         <div class="row cards">
           <div class="col-md-4">
-            <div data-aos="fade-down-right" class="card-pers">
+            <div data-aos="fade-down" class="card-pers">
               <div class="item-img">
                 <img class="img-frigorifica" src="assets/imagens/img-empilhadera.jpg">
               </div>
@@ -103,7 +65,7 @@
           <div class="col-md-4">
             <div data-aos="fade-up" class="card-pers">
               <div class="item-img">
-                <img class="img-frigorifica" src="assets/imagens/cargueiro.jpg">
+                <img class="img-frigorifica" src="assets/imagens/refrigerada.jpeg">
               </div>
               <hr>
               <div class="item-text">
@@ -118,7 +80,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div data-aos="fade-down-left" class="card-pers">
+            <div data-aos="fade-down" class="card-pers">
               <div class="item-img">
                 <img class="img-frigorifica" src="assets/imagens/caminhao_cheio.jpg">
               </div>
@@ -136,6 +98,45 @@
           </div>
         </div>
       </div>
+      <div class="row card-cotacao">
+        <div class="container-fluid">
+          <div data-aos="fade" class="txt-cotacao">
+            <h2>
+              FAÇA SUA COTAÇÃO
+            </h2>
+            <p>FAÇA SUA COTAÇÃO GRÁTIS E SEM COMPROMISSO!</p>
+          </div>
+          <div data-aos="fade-up" class="btn-cotacao">
+            <a href="cotacao.php">
+              <div class="div-btn-cotacao">
+                <b>Fazer cotação</b>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row quem-somos">
+          <div data-aos="fade" class="col-md-8 quem-somos-txt">
+            <h2>
+              FRETE FÁCIL MANAUS
+            </h2>
+            <h6>
+              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! 
+              </br>
+              TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
+            </h6>
+            <p>
+              Operamos com cargas fechadas e fracionadas com origem nos Estados do Rio Grande do Sul, Santa Catarina, Paraná, São Paulo, Minas Gerais, Bahia e Pernambuco com destino aos Estados do Amazonas e Roraima, 
+              principalmente para Manaus e Boa Vista e possuímos um serviço especial, de fácil cotação.
+              </p>
+          </div>
+          <div data-aos="fade" class="col-md-4 quem-somos-img">
+            <img class="img-quem-somos" src="assets/imagens/img-patio-amazonas.jpg">
+          </div>
+        </div>
+      </div>
+      
 
       <!-- MODAL CARGA FRACIONADA -->
   <div class="modal fade saibaMais" id="fracionada" role="dialog">

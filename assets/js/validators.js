@@ -134,16 +134,23 @@ function conferirForm(identificacao){
     var retorno = true;
     dadosForm = $('#' + identificacao).serializeArray();
     for (i = 0; i < dadosForm.length; i++) {
-        if (dadosForm[i].value == "") {
-            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
-            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
-            $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
-            retorno = false;
-        } else {
-            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
-            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
-            $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
-        } 
+            
+        if (
+            $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').prop('required') ||
+            $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').prop('required') ||
+            $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').prop('required')
+        ) {
+            if (dadosForm[i].value == "") {
+                $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+                $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+                $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').addClass('errorBorder');
+                retorno = false;
+            } else {
+                $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
+                $('#' + identificacao + ' textarea[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
+                $('#' + identificacao + ' select[name="' + dadosForm[i].name + '"]').removeClass('errorBorder');
+            } 
+        }
         if (dadosForm[i].name == "email") {
             if(!validateEmail(dadosForm[i].value)){
                 $('#' + identificacao + ' input[name="' + dadosForm[i].name + '"]').addClass('errorBorder');

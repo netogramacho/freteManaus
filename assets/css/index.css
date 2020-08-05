@@ -593,6 +593,9 @@ flex-wrap: wrap
   height: 225px;
   text-align: center;
 }
+.item-img img {
+  max-width: 394px;
+}
 
 
 .card-pers:hover{
@@ -616,7 +619,9 @@ flex-wrap: wrap
   box-shadow: 0 0 10px 0 #32323233;
   transition: all .2s linear!important;
 }
-
+.quem-somos-txt {
+  padding-top: 3%;
+}
 .quem-somos-txt h2{
   color: #223e5bad;
   font-family: BlackOblique;

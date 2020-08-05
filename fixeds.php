@@ -33,7 +33,7 @@
                                 <i class="far fa-2x fa-user-circle"></i>
                                 </div>
                                 <div class="col-md-10 col-10">
-                                    <input placeholder="Seu nome" id="email_nome" type="text" name="nome"/>
+                                    <input placeholder="Seu nome" id="email_nome" type="text" name="nome" required/>
                                 </div>
                             </div>
                           </div>
@@ -47,7 +47,7 @@
                                 <i class="fas fa-2x fa-phone-square"></i>
                                 </div>
                                 <div class="col-md-10 col-10">
-                                <input class="sp_celphones" placeholder="Telefone" id="email_telefone" type="tel" name="celular" />
+                                <input class="sp_celphones" placeholder="Telefone" id="email_telefone" type="tel" name="celular" required/>
                                 </div>
                             </div>
                           </div>
@@ -61,7 +61,7 @@
                                 <i class="fas fa-2x fa-envelope-square"></i>
                               </div>
                               <div class="col-md-10 col-10">
-                                <input placeholder="E-mail" id="email_email" type="text" name="email"/>
+                                <input placeholder="E-mail" id="email_email" type="text" name="email" required/>
                               </div>
                             </div>
                           </div>
@@ -75,7 +75,7 @@
                               <i class="fas fa-2x fa-comments"></i>
                               </div>
                               <div class="col-md-10 col-10">
-                                <textarea class="txt_Msg" id="email_msg" placeholder="Mensagem" id="" type="text" name="msg" form='formEmail'></textarea>
+                                <textarea class="txt_Msg" id="email_msg" placeholder="Mensagem" id="" type="text" name="msg" form='formEmail' required></textarea>
                               </div>
                           </div>
                           </div>
@@ -98,17 +98,14 @@
 
 
 
-  <div class="modal fade" id="modalWpp" role="dialog">
+  <!-- <div class="modal fade" id="modalWpp" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content modalEmail">
-        <!-- CABECALHO -->
         <div class="modal-header">
           <h4 class="modal-title">Entre em contato por WhatsApp:</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <!-- CORPO -->
         <div class="modal-body">
           <div class="row tit_duvidas">
             <div class="col-md-12">
@@ -150,21 +147,7 @@
         </div>
       </div>
     </div>
-  </div>
-      <!-- MODAL WHATS APP
-      <div class="modalWpp">
-        <div class="close-x">
-          <i class="fas fa-times"></i>
-        </div>
-        <h4>Entre em contato por WhatsApp:</h4>
-        <div class="container-fluid">
-          <div class="row tit_duvidas">
-            <div class="col-12">
-              
-            </div>
-          </div> 
-        </div> 
-      </div>  -->
+  </div> -->
 
 
       <!-- BOTOES ESTATICOS -->

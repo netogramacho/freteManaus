@@ -1,7 +1,7 @@
 <div class="rodape">
     <div class="container-fluid">
         <div>
-            <div data-aos="fade-right">
+            <div data-aos="fade">
                 <h4>
                     FRETE FACIL MANAUS
                 </h4>
@@ -9,7 +9,7 @@
                     FAÇA SUA COTAÇÃO GRÁTIS
                 </h5>   
             </div>
-            <div data-aos="fade-left">
+            <div data-aos="fade">
                 <p>
                     comercial@triunfocanotagem.com.br
                     </br>

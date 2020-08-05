@@ -23,19 +23,19 @@
                 <div class="col-md-4 item_cotacao">
                   <label>NOME</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-nome" name="nome" placeholder="Seu nome"></input>
+                    <input type="text" id="cot-nome" name="nome" placeholder="Seu nome" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>E-MAIL</label>
                   <div class="item_campo">
-                    <input type="email" id="cot-email" name="email" placeholder="Seu e-mail"></input>
+                    <input type="email" id="cot-email" name="email" placeholder="Seu e-mail" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>CELULAR</label>
                   <div class="item_campo">
-                    <input class="sp_celphones" type="tel" id="cot-cel" name="celular" placeholder="Seu numero de celular"></input>
+                    <input class="sp_celphones" type="tel" id="cot-cel" name="celular" placeholder="Seu numero de celular" required></input>
                   </div>
                 </div>
               </div>
@@ -44,19 +44,19 @@
                 <div class="col-md-4 item_cotacao">
                   <label>ORIGEM DA COLETA</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-orig-col"  name="carga-origem" placeholder="Origem da coleta"></input>
+                    <input type="text" id="cot-orig-col"  name="carga-origem" placeholder="Origem da coleta" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>DESTINO DA COLETA</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-dest-col" name="carga-destino" placeholder="Destino da coleta"></input>
+                    <input type="text" id="cot-dest-col" name="carga-destino" placeholder="Destino da coleta" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>TIPO DE CARGA</label>
                   <div class="item_campo">
-                    <select id="tipoCarga"  name="carga-tipo">
+                    <select id="tipoCarga" name="carga-tipo" required>
                       <option value="">SELECIONE</option>
                       <option value="Fracionada">CARGA FRACIONADA</option>
                       <option value="Frigorífica">CARGA REFRIGERADA OU CONGELADA </option>
@@ -70,7 +70,7 @@
                 <div class="col-md-4 item_cotacao">
                   <label>TIPO DE EMBALAGEM</label>
                   <div class="item_campo">
-                    <select id="tipoEmb" name="emb-tipo">
+                    <select id="tipoEmb" name="emb-tipo" required>
                       <option value="">SELECIONE</option>
                       <option value="Caixaria">CAIXARIA</option>
                       <option value="Fardo">FARDO</option>
@@ -82,13 +82,13 @@
                 <div class="col-md-4 item_cotacao">
                   <label>QUANTIDADE</label>
                   <div class="item_campo">
-                    <input type="number" id="cot-emb-quant" name="emb-quantidade" placeholder="Quantidade de embalagens"></input>
+                    <input type="number" id="cot-emb-quant" name="emb-quantidade" placeholder="Quantidade de embalagens" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>PESO</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-peso" name="emb-peso" placeholder="Peso da embalagem"></input>
+                    <input type="number" id="cot-emb-peso" name="emb-peso" placeholder="Peso da embalagem" required></input>
                     <span>kg</span>
                   </div>
                 </div>
@@ -119,7 +119,7 @@
                 <div class="col-md-6 item_cotacao">
                   <label>DESCRIÇÃO DO PRODUTO</label>
                   <div class="item_campo_txtarea">
-                    <textarea id="cot-prod-desc" name="prod-descricao" placeholder="Descrição do produto"></textarea>
+                    <textarea id="cot-prod-desc" name="prod-descricao" placeholder="Descrição do produto" required></textarea>
                   </div>
                 </div>
                 <div class="col-md-6 item_cotacao">
