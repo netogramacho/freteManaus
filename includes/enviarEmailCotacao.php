@@ -14,7 +14,13 @@
         //CARREGANDO ARQUIVO HTML E FAZENDO ALTERACOES 
         $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "cotacaoEmpresa.html");
         foreach ($arrDados as $array) {
-            $corpoEmail = str_replace("[" . $array->name . "]", $array->value, $corpoEmail);
+            if ($array->value != "") {
+                $valor = $array->value;
+            } else {
+                $valor = "Nao informado";
+            }
+
+            $corpoEmail = str_replace("[" . $array->name . "]", $valor, $corpoEmail);
         }
     
         $enderecos = array(

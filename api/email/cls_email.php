@@ -20,7 +20,7 @@ Class Cls_email {
             $mail->Username   = 'contato@macarenca.com';                    
             $mail->Password   = '!Maca2512';                            
             $mail->Port       = 587;         
-
+            $mail->CharSet    = 'UTF-8';
             //PERSONALIZACAO DO REMETENTE 
             $mail->setFrom('contato@macarenca.com', 'Macarena Croche');                      
 
