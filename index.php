@@ -28,7 +28,7 @@
                         <h3>
                           CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO!
                           </br>
-                          TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
+                          TEREMOS O PRAZER EM ATENDER SUA NECESSIDADE!
                         </h3>
                         <a href="cotacao.php">
                           <div class="btn-principal">

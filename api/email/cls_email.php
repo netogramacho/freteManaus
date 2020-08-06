@@ -15,14 +15,14 @@ Class Cls_email {
             //CONFIGURACOES DO EMAIL QUE VAI FAZER O ENVIO       
                         
             $mail->isSMTP();                                           
-            $mail->Host       = 'mail.macarencacroche.com';                   
+            $mail->Host       = 'mail.manausfrete.com.br';                   
             $mail->SMTPAuth   = false;                                  
-            $mail->Username   = 'contato@macarenca.com';                    
-            $mail->Password   = '!Maca2512';                            
+            $mail->Username   = 'contato@manausfrete.com.br';                    
+            $mail->Password   = '!contatoMF';                            
             $mail->Port       = 587;         
             $mail->CharSet    = 'UTF-8';
             //PERSONALIZACAO DO REMETENTE 
-            $mail->setFrom('contato@macarenca.com', 'Macarena Croche');                      
+            $mail->setFrom('contato@manausfrete.com.br', 'Manaus Frete');                      
 
             //RECEPTORES
             foreach ($this->enderecos as $endereco) {

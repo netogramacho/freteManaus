@@ -149,10 +149,9 @@
     </div>
   </div> -->
 
-
       <!-- BOTOES ESTATICOS -->
       <div class="staticWpp staticWppPosOne">
-        <a href="/" data-toggle="modal" data-target="#modalWpp"><i class="fab fa-whatsapp-square"></i></a>
+        <a href="https://api.whatsapp.com/send?l=pt-BR&phone=5519988700830&text=Olá, pode me ajudar%3F" target='_blank'><i class="fab fa-whatsapp-square"></i></a>
       </div>
       <div class="staticEmail">
         <a href="/" data-toggle="modal" data-target="#modalEmail"><i class="fas fa-envelope"></i></a>

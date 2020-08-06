@@ -218,36 +218,6 @@ function voltarTopo(){
 }
 
 
-//ENVIO DE MENSAGEM PERSONALIZADA WPP
-function enviarWpp() {
-    $('#btn_wpp').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
-    $('#btn_wpp').attr('disabled', 'disabled');
-
-    objWpp.nome = $('#wpp_nome').val();
-    objWpp.mensagem = $('#wpp_msg').val().toLowerCase();
-
-    if (!verificaCampoVazio(objWpp, 'wpp')) {
-        swal({
-            title: 'Atenção!',
-            text: "Preencha os campos em vermelho.",
-            type: 'warning',
-            showCancelButton: false,
-            confirmButtonColor: '#66AAD7',
-            confirmButtonText: 'Ok',
-        }).then(function () {
-            $('#btn_wpp').html('<i class="fab fa-3x fa-whatsapp-square"></i>');
-            $('#btn_wpp').attr('disabled', false);
-        });
-        return
-    } else {
-        window.open('https://api.whatsapp.com/send?phone=' + phone + '&text=Olá, me chamo ' + objWpp.nome + ' e gostaria de saber: ' + objWpp.mensagem, '_blank');
-        $('#btn_wpp').html('<i class="fab fa-3x fa-whatsapp-square"></i>');
-        $('#btn_wpp').attr('disabled', false);
-        clearInputs('wpp')
-    }
-}
-
-
 //ENVIO DE EMAIL DE CONTATO
 function enviarEmailContato(){
     $('#btn_email').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
