@@ -74,6 +74,36 @@ function iniciarComponetes() {
     });
 
     $('#inicio, #princpal_servicos').css('min-height', (window.innerHeight - parseInt($('#menu').css('height'))));
+    
+    if (screen.width < 640 || screen.height < 480) {
+        $('.mov-aos').prop('data-aos', 'fade');
+    }
+    //CALCULO AUTOMATICO DOS VALORES NA COTACAO
+    $('#formCotacao input[name=prod-valor-tot]').focusout(function(){
+        console.log($('#formCotacao input[name=prod-valor-tot]').val());
+        if ($('#formCotacao input[name=prod-valor-tot]').val() != "R$ 0,00") {
+            var aux = parseFloat($('#formCotacao input[name=prod-valor-tot]').val().replace("R$ ","").replace(".","").replace(",","."));
+            var result = aux/$('#formCotacao input[name=emb-quantidade]').val();
+            $('#formCotacao input[name=prod-valor-unit]').val(result.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
+            $('#formCotacao input[name=prod-valor-unit]').prop('disabled', true);
+        } else {
+            $('#formCotacao input[name=prod-valor-unit]').val("");
+            $('#formCotacao input[name=prod-valor-unit]').prop('disabled', false);
+        }
+    });
+
+    $('#formCotacao input[name=prod-valor-unit]').focusout(function(){
+        console.log($('#formCotacao input[name=prod-valor-unit]').val());
+        if ($('#formCotacao input[name=prod-valor-unit]').val() != "R$ 0,00") {
+            var aux = parseFloat($('#formCotacao input[name=prod-valor-unit]').val().replace("R$ ","").replace(".","").replace(",","."));
+            var result = aux*$('#formCotacao input[name=emb-quantidade]').val();
+            $('#formCotacao input[name=prod-valor-tot]').val(result.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
+            $('#formCotacao input[name=prod-valor-tot]').prop('disabled', true);
+        } else {
+            $('#formCotacao input[name=prod-valor-tot]').val("");
+            $('#formCotacao input[name=prod-valor-tot]').prop('disabled', false);
+        }
+    });
 
 }
 
@@ -152,6 +182,7 @@ function iniciarMascara() {
         }
     };
     $('.sp_celphones').mask(SPMaskBehavior, spOptions);
+    $('.money').maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
 }
 //SCROLL PARA FORA DA PAGINA DE COMECO (SETA PARA BAIXO)
 function scrollToQuemSomos(){
@@ -278,11 +309,14 @@ function enviarEmailContato(){
 
 //ENVIO DE EMAIL DE CONTATO
 function enviarEmailCotacao(){
+    var myform = $('#formCotacao');
+    var disabled = myform.find(':input:disabled').removeAttr('disabled');
+    var dados = $("#formCotacao").serializeArray();
+    var verifica = conferirForm("formCotacao");
+    disabled.attr('disabled','disabled');
     $('#btn_cotacao').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
     $('#btn_cotacao').attr('disabled', true);
-    var dados = $("#formCotacao").serializeArray();
-    console.log(dados);
-    if (!conferirForm("formCotacao")) {
+    if (!verifica) {
         swal({
             title: 'Atenção!',
             text: "Preencha corretamente os campos em vermelho.",
@@ -291,9 +325,9 @@ function enviarEmailCotacao(){
             confirmButtonColor: '#66AAD7',
             confirmButtonText: 'Ok',
         }).then(function () {
-            $('#btn_cotacao').html('<b>Enviar</b>');
-            $('#btn_cotacao').attr('disabled', false);
         });
+        $('#btn_cotacao').html('<b>Enviar</b>');
+        $('#btn_cotacao').attr('disabled', false);
         return false;
     } else {
         $.ajax({

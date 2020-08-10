@@ -5,7 +5,7 @@
         <title>Frete para Manaus</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
-        <link rel="shortcut icon" href="assets/imagens/barco.ico">
+        <link rel="shortcut icon" href="assets/imagens/barco.ico" sizes="16x16">
         <?php
           require_once("importsJsCss.php");
         ?>
@@ -109,13 +109,25 @@
                 <div class="col-md-4 item_cotacao">
                   <label>PROFUNDIDADE</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-comp" name="emb-profundidade" placeholder="Comprimento da embalagem"></input>
+                    <input type="number" id="cot-emb-comp" name="emb-profundidade" placeholder="Profundidade da embalagem"></input>
                     <span>m</span>
                   </div>
                 </div>
               </div>
               <h4>PRODUTO</h4>
               <div class="row">
+                <div class="col-md-6 item_cotacao">
+                  <label>VALOR UNITÁRIO</label>
+                  <div class="item_campo">
+                    <input class="money" type="text" id="prod-valor-unit" name="prod-valor-unit" placeholder="Valor de uma unidade" required></input>
+                  </div>
+                </div>
+                <div class="col-md-6 item_cotacao">
+                  <label>VALOR TOTAL</label>
+                  <div class="item_campo">
+                    <input class="money" type="text" id="prod-valor-tot" name="prod-valor-tot" placeholder="Valor total" required></input>
+                  </div>
+                </div>
                 <div class="col-md-6 item_cotacao">
                   <label>DESCRIÇÃO DO PRODUTO</label>
                   <div class="item_campo_txtarea">

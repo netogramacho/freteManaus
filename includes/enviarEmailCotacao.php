@@ -24,9 +24,9 @@
         }
     
         $enderecos = array(
-            "triunfocabotagem@gmail.com",
-            "operacional@triunfocabotagem.com.br",
-            "comercial@triunfocanotagem.com.br",
+            // "triunfocabotagem@gmail.com",
+            // "operacional@triunfocabotagem.com.br",
+            // "comercial@triunfocanotagem.com.br",
             "neto.paulo.po@gmail.com"
         );
     

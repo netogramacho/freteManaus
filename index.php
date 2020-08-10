@@ -3,10 +3,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Frete para Manaus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/imagens/barco.ico" sizes="16x16">
+
+    <!-- SEO Geral -->
+    <title>Frete Fácil Manaus</title>
+    <meta name="description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
+    <link rel="canonical" href="http://manausfrete.com.br/">
+    <meta name="author" content="">
+    <meta name="robots" content="index, nofollow">
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="Frete Fácil Manaus">
+    <meta itemprop="description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
     
-    <link rel="shortcut icon" href="assets/imagens/barco.ico">
+    <!-- Facebook -->
+    <meta property="og:title" content="Frete Fácil Manaus">
+    <meta property="og:description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
+    <meta property="og:url" content="http://manausfrete.com.br/">
+    <meta property="og:site_name" content="Frete Fácil Manaus">
+    <meta property="og:type" content="Website">
+
+    
 
     <?php
       require_once("importsJsCss.php");
@@ -122,14 +141,15 @@
               FRETE FÁCIL MANAUS
             </h2>
             <h6>
-              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! 
-              </br>
+              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! </br>
               TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
             </h6>
             <p>
-              Operamos com cargas fechadas e fracionadas com origem nos Estados do Rio Grande do Sul, Santa Catarina, Paraná, São Paulo, Minas Gerais, Bahia e Pernambuco com destino aos Estados do Amazonas e Roraima, 
-              principalmente para Manaus e Boa Vista e possuímos um serviço especial, de fácil cotação.
-              </p>
+              Operamos com cargas fechadas e fracionadas com origem nos Estados do Rio Grande do Sul, 
+              Santa Catarina, Paraná, São Paulo, Minas Gerais, Bahia e Pernambuco com destino aos 
+              Estados do Amazonas e Roraima, principalmente para Manaus e Boa Vista. E possuímos um 
+              serviço especial, de fácil cotação.
+            </p>
           </div>
           <div data-aos="fade" class="col-md-4 quem-somos-img">
             <img class="img-quem-somos" src="assets/imagens/img-patio-amazonas.jpg">
@@ -150,11 +170,11 @@
         <hr>
         <div class="modal-body">
           <p>
-            O transporte de cargas facionadas acontece quando deseja-se transportar uma pequena 
-            quantidade de mercadorias que não atinge a capacidade do contêiner utilizado para transporte, 
-            dessa forma, é feito o fracionamento com outras mercadorias do mesmo segmento. Desta maneira, 
-            em uma operação são agrupados vários embarques de clientes diferentes.  Nesta modalidade, as 
-            cargas podem ser paletizadas (acondicionadas em palets), caixarias, fardos ou peças avulsas.
+            O transporte de cargas fracionadas acontece quando deseja-se transportar uma pequena quantidade 
+            de mercadorias que não atingem a capacidade de carga do veículo utilizado para transporte. 
+            Dessa forma, é feito o fracionamento com outras mercadorias do mesmo segmento. 
+            Em uma operação, são agrupados vários embarques de clientes diferentes. Nesta modalidade, 
+            as cargas podem ser paletizadas (acondicionadas em palets), caixarias, fardos ou peças avulsas.
           </p>
         </div>
         <hr>
@@ -204,10 +224,10 @@
         <hr>
         <div class="modal-body">
           <p>
-            As denominadas 'cargas secas', podem ser perecíveis ou não, como o caso de alimentos 
-            que não necessitam de refrigeração, a exemplo do café e dos grãos. Além disso, 
-            equipamentos e mercadorias em geral, ou seja, produtos não perecíveis também podem ser 
-            transportados nesta modalidade.
+          As denominadas 'cargas secas' podem ser perecíveis ou não, como o caso de alimentos que 
+          não necessitam de refrigeração, a exemplo do café e dos grãos. Além disso, 
+          equipamentos e mercadorias em geraL, Ou seja, produtos não perecíveis também podem ser 
+          transportados nesta modalidade.
           </p>
         </div>
         <hr>

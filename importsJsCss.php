@@ -20,6 +20,7 @@
     <script src="assets/plugins/mask/jquery.mask.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/plugins/aos/aos.js"></script>
+    <script src="assets/plugins/maskMoney/jquery.maskMoney.js"></script>
 
     <script src="assets/js/index.js"></script>
     <script src="assets/js/validators.js"></script>
