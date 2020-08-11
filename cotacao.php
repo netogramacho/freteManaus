@@ -7,7 +7,7 @@
         <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
         <link rel="shortcut icon" href="assets/imagens/barco.ico" sizes="16x16">
         <?php
-          require_once("importsJsCss.php");
+          require_once("importsCss.php");
         ?>
     </head>
     <body>

@@ -76,7 +76,7 @@ function iniciarComponetes() {
     $('#inicio, #princpal_servicos').css('min-height', (window.innerHeight - parseInt($('#menu').css('height'))));
     
     if (screen.width < 640 || screen.height < 480) {
-        $('.mov-aos').prop('data-aos', 'fade');
+        $('.mov-aos').attr('data-aos', 'fade');
     }
     //CALCULO AUTOMATICO DOS VALORES NA COTACAO
     $('#formCotacao input[name=prod-valor-tot]').focusout(function(){

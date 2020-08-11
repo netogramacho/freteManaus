@@ -1,7 +1,7 @@
 <div class="rodape">
     <div class="container-fluid">
         <div>
-            <div data-aos="fade">
+            <div data-aos="fade-right" class="mov-aos">
                 <h4>
                     FRETE FACIL MANAUS
                 </h4>
@@ -9,7 +9,7 @@
                     FAÇA SUA COTAÇÃO GRÁTIS
                 </h5>   
             </div>
-            <div data-aos="fade">
+            <div data-aos="fade" class="mov-aos">
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-md-2"></div>
                 </div>
-                <div onclick="voltarTopo()" class="btn btn_rodape">
+                <div data-aos="fade-left" onclick="voltarTopo()" class="mov-aos btn btn_rodape">
                     VOLTAR AO TOPO
                 </div>
             </div>

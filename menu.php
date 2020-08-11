@@ -5,19 +5,19 @@
     </a>
     </div>
     <div class="col-2 d-block d-md-none menu_toggle">
-    <i class="fas fa-bars"></i>
+        <i class="fas fa-bars"></i>
     </div>
-    <div class="col-md-6 col-12">
-    <ul class="d-xs-none menu_txt">
-        <li onclick="exibirContato()">
-        <span>Contato</span>
-        </li>
-        <li onclick="location.href='cotacao.php'">
-        <span>Cotação</span>
-        </li>
-        <li>
-            <a href="/"><span>Home</span></a>
-        </li>
-    </ul>
+    <div class="col-md-6 padding-zero-mob">
+        <ul class="d-xs-none menu_txt">
+            <li onclick="exibirContato()">
+            <span>Contato</span>
+            </li>
+            <li onclick="location.href='cotacao.php'">
+            <span>Cotação</span>
+            </li>
+            <li>
+                <a href="/"><span>Home</span></a>
+            </li>
+        </ul>
     </div>
 </div>

@@ -7,6 +7,7 @@
   url('../plugins/fonts/ttf/AvenirLTStd-Black.ttf')  format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'apple-chancery';
@@ -15,6 +16,7 @@
   url('../plugins/fonts/ttf/apple-chancery.ttf')  format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'light';
@@ -23,6 +25,7 @@
   url('../plugins/fonts/ttf/AvenirLTStd-Light.ttf')  format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'roman';
@@ -39,6 +42,7 @@
   url('../plugins/fonts/ttf/AvenirLTStd-BlackOblique.ttf')  format('truetype');
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
 }
 
 body {
@@ -87,7 +91,7 @@ a:hover{
   text-align: center;
   padding: 0px 16px;
   text-decoration: none;
-  font-family: light;
+  font-family: BlackOblique;
   letter-spacing: 1px;
 }
 .navbar li:hover {
@@ -157,7 +161,8 @@ flex-wrap: wrap
   top: 15%;
   width: 100%;
 }
-.titulo-principal h3 {
+.titulo-principal h1 {
+  font-size: 28px;
   color: #00000090;
   font-family: BlackOblique;
   padding: 5px 15px 0px 10px;
@@ -173,6 +178,8 @@ flex-wrap: wrap
   border: gold 1px solid;
   background-color: gold;
   padding: 10px;
+}
+.btn-principal a{
   color: #191970;
 }
 .btn-principal:hover {
@@ -464,42 +471,6 @@ flex-wrap: wrap
 }
 
 
-/* MUDANDO PROPRIEDADES DO SLICK */
-
-.slick-next, .slick-prev {
-  z-index: 1;
-}
-
-.slick-next {
-  right: 75px;
-}
-
-.slick-next::before{
-  content: "";
-}
-
-.slick-prev::before {
-  content: "";
-}
-
-.slick-prev {
-  left: 45px;
-}
-
-.slick-prev svg, .slick-next svg {
-  color: #00000090;
-  background-color: #ffffff40;
-  font-size: 60px;
-  border-radius: 50%;
-  width: 60px!important;
-  height: 60px;
-}
-.slick-prev svg:hover, .slick-next svg:hover {
-  color: #000000ad;
-  background-color: #ffffffad;
-  cursor: pointer;
-}
-
 /* CARD COTACAO*/
 
 .card-cotacao {
@@ -667,48 +638,6 @@ flex-wrap: wrap
   text-align: center;
 }
 
-
-/* MOBILE */
-.visible-xs {
-  display: none;
-}
-@media screen and (max-width: 768px) {
-  /* ICONE MENU */
-  #menu i {
-   color: #fff;
-   font-size: 25px;
- }
- .navbar img {
-   margin-left: 0;
- }
- .navbar ul li {
-   position: relative;
-   float: right;
-   width: 100%;
-   height: 45px;
-   padding: 0px 5px;
-   text-align: center;
- }
- .menu_txt {
-   padding: 0;
- }
-
- .visible-xs {
-     display: block;
-   }
- .d-xs-none {
-    display: none;
-  }
-  .foto_logo img {
-    height: unset;
-    width: 100%;
-  }
-  .foto_jaleco img {
-    height: unset;
-    width: 100%;
-  }
-}
-
 /* FORMULARIO COTACAO */
 .form_cotacao {
   padding: 50px;
@@ -858,6 +787,92 @@ flex-wrap: wrap
   padding: 0 10%;
   color: #fff;
 }
+
+/* MOBILE */
+.visible-xs {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  /* ICONE MENU */
+  #menu i {
+   color: #fff;
+   font-size: 25px;
+  }
+  .navbar {
+    overflow: unset;
+  }
+  .navbar img {
+    margin-left: 0;
+  }
+  .navbar ul li {
+    position: relative;
+    float: right;
+    width: 33.3%;
+    text-align: center;
+    background-color: #223e5b;
+  }
+  .menu_txt {
+    padding: 0;
+  }
+  .padding-zero-mob {
+    padding: 0;
+  }
+
+  .visible-xs {
+    display: block;
+  }
+  .d-xs-none {
+    display: none;
+  }
+  .foto_logo img {
+    height: unset;
+    width: 100%;
+  }
+  .foto_jaleco img {
+    height: unset;
+    width: 100%;
+  }
+  .titulo-principal h1 {
+    font-size: 20px;
+  }
+
+  .btn_rodape {
+    width: 40%;
+    margin-left: 30%;
+  }
+  .card-cotacao {
+    padding: 25px 0;
+  }
+  .div-btn-cotacao {
+    width: 32%;
+    margin-left: 34%;
+  }
+
+  .staticWpp {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    right: 10px;
+  }
+  .staticEmail {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    left: 15px;
+  }
+  .staticWpp svg, .staticWpp i {
+    font-size: 55px;
+    color: #00e676;
+  }
+  .staticEmail svg, .staticEmail i {
+    font-size: 55px;
+    color: #ff4444;
+  }
+  .arrowBottom {
+    right: 45%;
+  }
+}
+
 
 
 @keyframes arrowToBottom {

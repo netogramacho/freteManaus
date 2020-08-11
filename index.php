@@ -25,11 +25,7 @@
     <meta property="og:site_name" content="Frete Fácil Manaus">
     <meta property="og:type" content="Website">
 
-    
-
-    <?php
-      require_once("importsJsCss.php");
-    ?>
+  
 
   </head>
   <body>
@@ -44,18 +40,19 @@
                   <div id="logos" class="first-item logos">
                     <div class="logo">
                       <div class="titulo-principal">
-                        <h3>
+                        <h1>
                           CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO!
                           </br>
                           TEREMOS O PRAZER EM ATENDER SUA NECESSIDADE!
-                        </h3>
-                        <a href="cotacao.php">
-                          <div class="btn-principal">
+                        </h1>
+                        <div class="btn-principal">
+                          <a href="cotacao.php">
                             <b>Fazer Cotacao</b>
-                          </div>
-                        </a>
+                          </a>
+                        </div>
                       </div>
-                      <img class="logoImg" src="assets/imagens/img-carrosel-estrada.jpg" alt="">
+                      <img class="logoImg d-xs-none" src="assets/imagens/img-carrosel-estrada.jpg" alt="">
+                      <img class="logoImg visible-xs" src="assets/imagens/img-carrosel-estrada-mob.jpg" alt="">
                     </div>
                   </div>
                   <i onclick="scrollToQuemSomos()" class="fas fa-arrow-down arrowBottom"></i>
@@ -65,7 +62,7 @@
       <div class="container-fluid">
         <div class="row cards">
           <div class="col-md-4">
-            <div data-aos="fade-down" class="card-pers">
+            <div data-aos="fade-down-right" class="mov-aos card-pers">
               <div class="item-img">
                 <img class="img-frigorifica" src="assets/imagens/img-empilhadera.jpg">
               </div>
@@ -82,9 +79,9 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div data-aos="fade-up" class="card-pers">
+            <div data-aos="fade-up" class="mov-aos card-pers">
               <div class="item-img">
-                <img class="img-frigorifica" src="assets/imagens/refrigerada.jpeg">
+                <img class="img-frigorifica" src="assets/imagens/refrigerada.jpg">
               </div>
               <hr>
               <div class="item-text">
@@ -99,7 +96,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div data-aos="fade-down" class="card-pers">
+            <div data-aos="fade-down-left" class="mov-aos card-pers">
               <div class="item-img">
                 <img class="img-frigorifica" src="assets/imagens/caminhao_cheio.jpg">
               </div>
@@ -117,15 +114,15 @@
           </div>
         </div>
       </div>
-      <div class="row card-cotacao">
+      <div class="card-cotacao">
         <div class="container-fluid">
-          <div data-aos="fade" class="txt-cotacao">
+          <div data-aos="fade-left" class="mov-aos txt-cotacao">
             <h2>
               FAÇA SUA COTAÇÃO
             </h2>
             <p>FAÇA SUA COTAÇÃO GRÁTIS E SEM COMPROMISSO!</p>
           </div>
-          <div data-aos="fade-up" class="btn-cotacao">
+          <div data-aos="fade-right" class="mov-aos btn-cotacao">
             <a href="cotacao.php">
               <div class="div-btn-cotacao">
                 <b>Fazer cotação</b>
@@ -136,7 +133,7 @@
       </div>
       <div class="container-fluid">
         <div class="row quem-somos">
-          <div data-aos="fade" class="col-md-8 quem-somos-txt">
+          <div data-aos="fade-right" class="mov-aos col-md-8 quem-somos-txt">
             <h2>
               FRETE FÁCIL MANAUS
             </h2>
@@ -151,7 +148,7 @@
               serviço especial, de fácil cotação.
             </p>
           </div>
-          <div data-aos="fade" class="col-md-4 quem-somos-img">
+          <div data-aos="fade-left" class="mov-aos col-md-4 quem-somos-img">
             <img class="img-quem-somos" src="assets/imagens/img-patio-amazonas.jpg">
           </div>
         </div>
@@ -246,6 +243,8 @@
   <?php
     require_once("fixeds.php");
     require("rodape.php");
+    require_once("importsCss.php");
+    require_once("importsJs.php");
   ?>
   </body>
 </html>
