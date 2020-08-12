@@ -1,10 +1,9 @@
 $(document).ready(function () {
-    //ATRASA INICIALIZACAO POR CAUSA DO SLICK - ELE PRECISA INICIAR PRIMEIRO
-    //carousel();
     iniciarComponetes();
     iniciarMascara();
     iniciarRodape();
     AOS.init();
+    $('img').Lazy()
 });
 var phone = '5519988700830';
 var DIRETORIO = "includes/";
@@ -78,33 +77,6 @@ function iniciarComponetes() {
     if (screen.width < 640 || screen.height < 480) {
         $('.mov-aos').attr('data-aos', 'fade');
     }
-    //CALCULO AUTOMATICO DOS VALORES NA COTACAO
-    $('#formCotacao input[name=prod-valor-tot]').focusout(function(){
-        console.log($('#formCotacao input[name=prod-valor-tot]').val());
-        if ($('#formCotacao input[name=prod-valor-tot]').val() != "R$ 0,00") {
-            var aux = parseFloat($('#formCotacao input[name=prod-valor-tot]').val().replace("R$ ","").replace(".","").replace(",","."));
-            var result = aux/$('#formCotacao input[name=emb-quantidade]').val();
-            $('#formCotacao input[name=prod-valor-unit]').val(result.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
-            $('#formCotacao input[name=prod-valor-unit]').prop('disabled', true);
-        } else {
-            $('#formCotacao input[name=prod-valor-unit]').val("");
-            $('#formCotacao input[name=prod-valor-unit]').prop('disabled', false);
-        }
-    });
-
-    $('#formCotacao input[name=prod-valor-unit]').focusout(function(){
-        console.log($('#formCotacao input[name=prod-valor-unit]').val());
-        if ($('#formCotacao input[name=prod-valor-unit]').val() != "R$ 0,00") {
-            var aux = parseFloat($('#formCotacao input[name=prod-valor-unit]').val().replace("R$ ","").replace(".","").replace(",","."));
-            var result = aux*$('#formCotacao input[name=emb-quantidade]').val();
-            $('#formCotacao input[name=prod-valor-tot]').val(result.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}));
-            $('#formCotacao input[name=prod-valor-tot]').prop('disabled', true);
-        } else {
-            $('#formCotacao input[name=prod-valor-tot]').val("");
-            $('#formCotacao input[name=prod-valor-tot]').prop('disabled', false);
-        }
-    });
-
 }
 
 var objEmail = {
@@ -127,19 +99,6 @@ function clearInputs(classe) {
     $('#' + classe + '_msg').val('')
 }
 
-
-// function carousel() {
-//     $('.logoImg').css('height', (window.innerHeight - parseInt($('#menu').css('height'))));
-//     //$('.logos, .logo img').css('width', window.innerWidth);
-//     setTimeout(() => {
-//         $('.first-item').slick({
-//           arrows: true,
-//           speed: 1000,
-//         });
-//         $('.slick-prev').html('<i class="fas fa-arrow-left"></i>');
-//         $('.slick-next').html('<i class="fas fa-arrow-right"></i>');
-//     }, 500);
-// }
 
 
 function verificaCampoVazio(objDM, classe) {
@@ -194,7 +153,6 @@ function scrollToQuemSomos(){
 
 //ANIMACAO DE BOTOES ESTATICOS PARA O CENTRO
 function exibirContato(){
-    $('body').css('padding-right', '15px');
     $('body').css('overflow', 'hidden');
     $('.fundoContato').fadeIn('fast');
     $('.staticWpp').addClass('staticWppAnimation');
@@ -215,6 +173,7 @@ function exibirContato(){
 
 //ANIMACAO DE BOTOES ESTATICOS PARA A POSICAO ORIGINAL
 function voltaAnimacaoContato(){
+    $('body').css('overflow', '');
     $('.fundoContato').fadeOut('fast');
     if ($('.staticWpp').hasClass('voltarAnimacao')) {
         $('.staticWpp').addClass('staticWppAnimationVolta');
@@ -350,6 +309,7 @@ function enviarEmailCotacao(){
                     }
                     $('#btn_cotacao').html('<b>Enviar</b>');
                     $('#btn_cotacao').attr('disabled', false);
+                    window.location.reload();
             });
         }).fail(function (response) {
             swal({

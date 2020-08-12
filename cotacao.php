@@ -6,9 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--[if IE]><link rel="shortcut icon" href="assets/images/favicon.ico"><![endif]-->
         <link rel="shortcut icon" href="assets/imagens/barco.ico" sizes="16x16">
-        <?php
-          require_once("importsCss.php");
-        ?>
+        
     </head>
     <body>
         <!-- MENU -->
@@ -23,13 +21,13 @@
                 <div class="col-md-4 item_cotacao">
                   <label>NOME</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-nome" name="nome" placeholder="Seu nome" required></input>
+                    <input type="text" id="cot-nome" name="nome" placeholder="Seu nome" autocomplete="off" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>E-MAIL</label>
                   <div class="item_campo">
-                    <input type="email" id="cot-email" name="email" placeholder="Seu e-mail" required></input>
+                    <input type="email" id="cot-email" name="email" placeholder="Seu e-mail" autocomplete="off" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
@@ -44,13 +42,13 @@
                 <div class="col-md-4 item_cotacao">
                   <label>ORIGEM DA COLETA</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-orig-col"  name="carga-origem" placeholder="Origem da coleta" required></input>
+                    <input type="text" id="cot-orig-col"  name="carga-origem" placeholder="Origem da coleta" autocomplete="off" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>DESTINO DA COLETA</label>
                   <div class="item_campo">
-                    <input type="text" id="cot-dest-col" name="carga-destino" placeholder="Destino da coleta" required></input>
+                    <input type="text" id="cot-dest-col" name="carga-destino" placeholder="Destino da coleta" autocomplete="off" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
@@ -116,28 +114,22 @@
               </div>
               <h4>PRODUTO</h4>
               <div class="row">
-                <div class="col-md-6 item_cotacao">
-                  <label>VALOR UNITÁRIO</label>
-                  <div class="item_campo">
-                    <input class="money" type="text" id="prod-valor-unit" name="prod-valor-unit" placeholder="Valor de uma unidade" required></input>
-                  </div>
-                </div>
-                <div class="col-md-6 item_cotacao">
+                <div class="col-md-4 item_cotacao">
                   <label>VALOR TOTAL</label>
                   <div class="item_campo">
                     <input class="money" type="text" id="prod-valor-tot" name="prod-valor-tot" placeholder="Valor total" required></input>
                   </div>
                 </div>
-                <div class="col-md-6 item_cotacao">
+                <div class="col-md-4 item_cotacao">
                   <label>DESCRIÇÃO DO PRODUTO</label>
                   <div class="item_campo_txtarea">
-                    <textarea id="cot-prod-desc" name="prod-descricao" placeholder="Descrição do produto" required></textarea>
+                    <textarea id="cot-prod-desc" name="prod-descricao" placeholder="Descrição do produto" autocomplete="off" required></textarea>
                   </div>
                 </div>
-                <div class="col-md-6 item_cotacao">
+                <div class="col-md-4 item_cotacao">
                   <label>OBSERVAÇÕES DO PRODUTO</label>
                   <div class="item_campo_txtarea">
-                    <textarea id="cot-prod-obs" name="prod-observacoes" placeholder="Observações do produto"></textarea>
+                    <textarea id="cot-prod-obs" name="prod-observacoes" placeholder="Observações do produto"autocomplete="off"></textarea>
                   </div>
                 </div>
               </div>
@@ -154,6 +146,8 @@
         <?php
             require_once("fixeds.php");
             require_once("rodape.php");
+            require_once("importsCss.php");
+            require_once("importsJs.php");
         ?>
     </body>
         

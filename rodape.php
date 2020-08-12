@@ -9,14 +9,14 @@
                     FAÇA SUA COTAÇÃO GRÁTIS
                 </h5>   
             </div>
-            <div data-aos="fade" class="mov-aos">
+            <div data-aos="fade-left" class="mov-aos">
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-4">
                                 <p>
-                                    comercial@triunfocanotagem.com.br
+                                    comercial@triunfocabotagem.com.br
                                 </p>
                             </div>
                             <div class="col-md-4">
@@ -45,9 +45,9 @@
                         </div>
                     </div>
                     <div class="col-md-2"></div>
-                </div>
-                <div data-aos="fade-left" onclick="voltarTopo()" class="mov-aos btn btn_rodape">
-                    VOLTAR AO TOPO
+                    <div onclick="voltarTopo()" class="btn_rodape">
+                        VOLTAR AO TOPO
+                    </div>
                 </div>
             </div>
         </div>

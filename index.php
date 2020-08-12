@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="assets/imagens/barco.ico" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css"/>
 
     <!-- SEO Geral -->
-    <title>Frete Fácil Manaus</title>
-    <meta name="description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
-    <link rel="canonical" href="http://manausfrete.com.br/">
-    <meta name="author" content="">
+    <title>Frete Para Manaus | FAÇA COTAÇÃO ONLINE E GRÁTIS</title>
+    <meta name="description" content="Faça uma cotação de frete para manaus online e grátis ou fale diretamente conosco. Confira nossas opções de fretes de cargas com o melhor preço e segurança.">
+    <link rel="canonical" href="https://manausfrete.com.br/">
+    <meta name="author" content="Neto Gramacho | NG Developments">
     <meta name="robots" content="index, nofollow">
 
     <!-- Google+ -->
-    <meta itemprop="name" content="Frete Fácil Manaus">
-    <meta itemprop="description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
+    <meta itemprop="name" content="Frete Para Manaus | FAÇA COTAÇÃO ONLINE E GRÁTIS">
+    <meta itemprop="description" content="Faça uma cotação de frete para manaus online e grátis ou fale diretamente conosco. Confira nossas opções de fretes de cargas com o melhor preço e segurança.">
     
     <!-- Facebook -->
-    <meta property="og:title" content="Frete Fácil Manaus">
-    <meta property="og:description" content="Faça uma cotação de forma rápida ou fale diretamente conosco. Confira nossas opções de fretes para Manaus com o melhor preço e segurança.">
-    <meta property="og:url" content="http://manausfrete.com.br/">
-    <meta property="og:site_name" content="Frete Fácil Manaus">
+    <meta property="og:title" content="Frete Para Manaus | FAÇA COTAÇÃO ONLINE E GRÁTIS">
+    <meta property="og:description" content="Faça uma cotação de frete para manaus online e grátis ou fale diretamente conosco. Confira nossas opções de fretes de cargas com o melhor preço e segurança.">
+    <meta property="og:url" content="https://manausfrete.com.br/">
+    <meta property="og:site_name" content="Frete Para Manaus | FAÇA COTAÇÃO ONLINE E GRÁTIS">
     <meta property="og:type" content="Website">
 
   
@@ -41,13 +42,13 @@
                     <div class="logo">
                       <div class="titulo-principal">
                         <h1>
-                          CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO!
+                          FRETE PARA MANAUS? COTE GRÁTIS CONOSCO!
                           </br>
                           TEREMOS O PRAZER EM ATENDER SUA NECESSIDADE!
                         </h1>
                         <div class="btn-principal">
                           <a href="cotacao.php">
-                            <b>Fazer Cotacao</b>
+                            <b>Fazer Cotação</b>
                           </a>
                         </div>
                       </div>
@@ -68,10 +69,10 @@
               </div>
               <hr>
               <div class="item-text">
-                <h2 class="card-tit-padding">
-                  CARGA FRACIONADA
+                <h2>
+                  FRETE DE CARGA FRACIONADA
                 </h2>
-                <p>Cargas que não atingem a capacidade do veículo.</p>
+                <h3>Cargas que não atingem a capacidade do veículo.</h3>
               </div>
               <div class="item-btn">
                 <a href="" data-toggle="modal" data-target="#fracionada"><b>Saiba mais</b></a>
@@ -86,9 +87,9 @@
               <hr>
               <div class="item-text">
                 <h2>
-                  CARGA REFRIGERADA<br/>OU CONGELADA
+                  FRETE DE CARGA REFRIGERADA
                 </h2>
-                <p>Cargas que exigem controle de temperatura.</p>
+                <h3>Cargas que exigem controle de temperatura.</h3>
               </div>
               <div class="item-btn">
                 <a href="" data-toggle="modal" data-target="#refrigerada"><b>Saiba mais</b></a>
@@ -102,10 +103,10 @@
               </div>
               <hr>
               <div class="item-text">
-                <h2 class="card-tit-padding">
-                  CARGA SECA
+                <h2>
+                  FRETE DE CARGA SECA
                 </h2>
-                <p>Cargas que não exigem controle de temperatura.</p>
+                <h3>Cargas que não exigem controle de temperatura.</h3>
               </div>
               <div class="item-btn">
                 <a href="" data-toggle="modal" data-target="#seca"><b>Saiba mais</b></a>
@@ -120,7 +121,7 @@
             <h2>
               FAÇA SUA COTAÇÃO
             </h2>
-            <p>FAÇA SUA COTAÇÃO GRÁTIS E SEM COMPROMISSO!</p>
+            <p>FAÇA SUA COTAÇÃO ONLINE, GRÁTIS E SEM COMPROMISSO!</p>
           </div>
           <div data-aos="fade-right" class="mov-aos btn-cotacao">
             <a href="cotacao.php">
@@ -135,10 +136,10 @@
         <div class="row quem-somos">
           <div data-aos="fade-right" class="mov-aos col-md-8 quem-somos-txt">
             <h2>
-              FRETE FÁCIL MANAUS
+              MANAUS FRETE
             </h2>
             <h6>
-              CARGA FRACIONADA, CARGA FECHADA, REFRIGERADA? COTE CONOSCO! </br>
+              FRETE DE CARGA FRACIONADA, FECHADA OU REFRIGERADA? COTE CONOSCO! </br>
               TEREMOS O PRAZER DE ATENDER SUA NECESSIDADE!
             </h6>
             <p>
@@ -162,7 +163,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">CARGA FRACIONADA</h4>
+          <h1 class="modal-title">FRETE DE CARGA FRACIONADA</h1>
         </div>
         <hr>
         <div class="modal-body">
@@ -190,7 +191,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">CARGA REFRIGERADA OU CONGELADA</h4>
+          <h1 class="modal-title">FRETE DE CARGA REFRIGERADA</h1>
         </div>
         <hr>
         <div class="modal-body">
@@ -216,7 +217,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">CARGA SECA</h4>
+          <h1 class="modal-title">FRETE DE CARGA FECHADA</h1>
         </div>
         <hr>
         <div class="modal-body">
