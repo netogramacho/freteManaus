@@ -11,7 +11,7 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-175272289-1');
-</script>
+    </script>
 
 
     <meta charset="utf-8">
