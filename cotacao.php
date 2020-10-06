@@ -12,7 +12,6 @@
         gtag('config', 'UA-175272289-1');
       </script>
 
-
         <meta charset="utf-8">
         <title>Frete para Manaus</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +25,7 @@
         require_once("menu.php");
         ?>
         <div class="corpo">
-          <div class="container-fluid form_cotacao">
+          <div class="container-fluid form_padrao">
             <h4>SUAS INFORMAÇÕES</h4>
             <form id="formCotacao" action="return false;">
               <div class="row">
@@ -50,6 +49,27 @@
                 </div>
               </div>
               <h4>CARGA</h4>
+              <div class="row">
+                <div class="col-md-12 item_cotacao">
+                  <label class="lbl_check">Tipo de Cotaçao</label>
+                  <div class="item_check">                  
+                    <div class="div_check">
+                      <input type="checkbox" name="aereo" value="X">
+                      <label for="aereo"> Aéreo</label>
+                    </div>
+                    <div class="div_sep"></div>
+                    <div class="div_check">
+                      <input type="checkbox" name="cabotagem" value="X">
+                      <label for="cabotagem"> Cabotagem</label>
+                    </div>
+                    <div class="div_sep"></div>
+                    <div class="div_check">
+                      <input type="checkbox" name="rodoviario" value="X">
+                      <label for="rodoviario"> Rodoviário</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-4 item_cotacao">
                   <label>ORIGEM DA COLETA</label>
@@ -92,34 +112,34 @@
                 <div class="col-md-4 item_cotacao">
                   <label>QUANTIDADE</label>
                   <div class="item_campo">
-                    <input type="number" id="cot-emb-quant" name="emb-quantidade" placeholder="Quantidade de embalagens" required></input>
+                    <input class="isNumber" type="tel" id="cot-emb-quant" name="emb-quantidade" placeholder="Quantidade de embalagens" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>PESO</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-peso" name="emb-peso" placeholder="Peso da embalagem" required></input>
+                    <input class="isNumber" type="tel" id="cot-emb-peso" name="emb-peso" placeholder="Peso da embalagem" required></input>
                     <span>kg</span>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>ALTURA</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-alt" name="emb-altura" placeholder="Altura da embalagem"></input>
+                    <input class="isNumber" type="tel" id="cot-emb-alt" name="emb-altura" placeholder="Altura da embalagem"></input>
                     <span>m</span>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>LARGURA</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-larg" name="emb-largura" placeholder="Largura da embalagem"></input>
+                    <input class="isNumber" type="tel" id="cot-emb-larg" name="emb-largura" placeholder="Largura da embalagem"></input>
                     <span>m</span>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">
                   <label>PROFUNDIDADE</label>
                   <div class="item_medida">
-                    <input type="number" id="cot-emb-comp" name="emb-profundidade" placeholder="Profundidade da embalagem"></input>
+                    <input class="isNumber" type="tel" id="cot-emb-comp" name="emb-profundidade" placeholder="Profundidade da embalagem"></input>
                     <span>m</span>
                   </div>
                 </div>
@@ -129,7 +149,7 @@
                 <div class="col-md-4 item_cotacao">
                   <label>VALOR TOTAL</label>
                   <div class="item_campo">
-                    <input class="money" type="text" id="prod-valor-tot" name="prod-valor-tot" placeholder="Valor total" required></input>
+                    <input class="money" type="tel" id="prod-valor-tot" name="prod-valor-tot" placeholder="Valor total" required></input>
                   </div>
                 </div>
                 <div class="col-md-4 item_cotacao">

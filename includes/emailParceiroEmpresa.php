@@ -12,7 +12,7 @@
         
         //EMAIL PARA ANDRESSA
         //CARREGANDO ARQUIVO HTML E FAZENDO ALTERACOES 
-        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "cotacaoEmpresa.html");
+        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "parceriaEmpresa-Empresa.html");
         foreach ($arrDados as $array) {
             if ($array->value != "") {
                 $valor = $array->value;
@@ -23,10 +23,21 @@
             $corpoEmail = str_replace("[" . $array->name . "]", $valor, $corpoEmail);    
         }
 
-        $corpoEmail = str_replace("[aereo]", " ", $corpoEmail);
-        $corpoEmail = str_replace("[cabotagem]", " ", $corpoEmail);
-        $corpoEmail = str_replace("[rodoviario]", " ", $corpoEmail);
-    
+        $corpoEmail = str_replace("[carretaLS-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[carretaSimples-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[truck-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[tres-quartos-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[outrosempVeiculoTxt]", "Não informado", $corpoEmail);
+
+
+        $corpoEmail = str_replace("[bau-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[aberta-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[sider-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[portaContainer-emp]", " ", $corpoEmail);
+        $corpoEmail = str_replace("[outrosempCarroceriaTxt]", "Não informado", $corpoEmail);
+
+
+
         $enderecos = array(
             // "triunfocabotagem@gmail.com",
             // "operacional@triunfocabotagem.com.br",
@@ -34,7 +45,7 @@
             "neto.paulo.po@gmail.com"
         );
     
-        $assunto = "Nova cotação de cliente";
+        $assunto = "Nova solicitação de parceria com Empresa";
     
         $email = new Cls_email();
         $email->assunto = $assunto;
@@ -44,7 +55,7 @@
 
         //EMAIL CLIENTE
 
-        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "cotacaoCliente.html");
+        $corpoEmail = file_get_contents(".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "emails" . DIRECTORY_SEPARATOR . "contatoCliente.html");
         
         
         $enderecos = array();
@@ -57,7 +68,7 @@
         }
 
     
-        $assunto = "Recebemos seu pedido de cotação";
+        $assunto = "Recebemos seu pedido de parceria.";
     
         $email = new Cls_email();
         $email->assunto = $assunto;

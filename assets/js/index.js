@@ -52,6 +52,7 @@ function iniciarComponetes() {
         $('body').css('padding-right', '');
     });
 
+
     $('.btn_agende_aqui').on('click', function(){
       $('#agendamento_modal').modal({
         fadeDuration: 500,
@@ -61,15 +62,78 @@ function iniciarComponetes() {
       });
     });
     $(window).on('load', function(){
-      setTimeout(function(){
-         $("#img_carregamento").css("-webkit-transform","scale(0.75)");
-         $("#img_carregamento").css("-moz-transform","scale(0.75)");
-         $("#img_carregamento").css("-o-transform","scale(0.75)");
-         $('.loading').find('h1').slideDown();
-      }, 500);
-      setTimeout(function(){
-         $(".loading").fadeOut();
-      }, 2000);
+        setTimeout(function(){
+            $("#img_carregamento").css("-webkit-transform","scale(0.75)");
+            $("#img_carregamento").css("-moz-transform","scale(0.75)");
+            $("#img_carregamento").css("-o-transform","scale(0.75)");
+            $('.loading').find('h1').slideDown();
+        }, 500);
+        setTimeout(function(){
+        $(".loading").fadeOut();
+    }, 2000);
+    });
+
+    //REACOES FORMULARIO PARCEIROS
+    $("#divCheckAutonomo").on("click", function(){
+        $("#autonomo").prop("checked", true);
+    });
+    $("#divCheckEmpresa").on("click", function(){
+        $("#empresa").prop("checked", true);
+    });
+
+
+    //OUTROS FORMULARIO AUTONOMO
+    $("#outrosAutVeiculo").click(function(){
+        if($(this).is(":checked")){
+            $("#outrosAutVeiculoTxt").prop("disabled", false);
+        } else {
+            $("#outrosAutVeiculoTxt").prop("disabled", "disabled");
+        }
+    });
+    $("#outrosAutCarroceria").click(function(){
+        if($(this).is(":checked")){
+            $("#outrosAutCarroceriaTxt").prop("disabled", false);
+        } else {
+            $("#outrosAutCarroceriaTxt").prop("disabled", "disabled");
+        }
+    });
+
+    //OUTROS FOMRULARIO EMPRESA
+    $("#outrosempVeiculo").click(function(){
+        if($(this).is(":checked")){
+            $("#outrosempVeiculoTxt").prop("disabled", false);
+        } else {
+            $("#outrosempVeiculoTxt").prop("disabled", "disabled");
+        }
+    });
+    $("#outrosempCarroceria").click(function(){
+        if($(this).is(":checked")){
+            $("#outrosempCarroceriaTxt").prop("disabled", false);
+        } else {
+            $("#outrosempCarroceriaTxt").prop("disabled", "disabled");
+        }
+    });
+
+    //SELECIONAR FORM
+    $('.radioAbrirFormulario').click(function() {
+        if($("#autonomo").is(":checked")){
+            $("#formEmpresa").slideUp(1000); 
+            setTimeout(function(){
+                $("#formAutonomo").slideDown(1000);
+            }, 900);
+        } else {
+            $("#formAutonomo").slideUp(1000);
+            setTimeout(function(){
+                $("#formEmpresa").slideDown(1000);
+            }, 900);
+        }
+    });
+
+
+    //TRAVAR INSERCAO DE NUMEROS
+    
+    $('.isNumber').on('keypress', function () {
+        return isNumber(event);
     });
 
     $('#inicio, #princpal_servicos').css('min-height', (window.innerHeight - parseInt($('#menu').css('height'))));
@@ -142,6 +206,11 @@ function iniciarMascara() {
     };
     $('.sp_celphones').mask(SPMaskBehavior, spOptions);
     $('.money').maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+
+    $(".rg").mask("99.999.999-9");
+    $(".cpf").mask("999.999.999-99");
+    $(".cnpj").mask("99.999.999/9999-99");
+    $(".cep").mask("99.999-999");
 }
 //SCROLL PARA FORA DA PAGINA DE COMECO (SETA PARA BAIXO)
 function scrollToQuemSomos(){
@@ -266,15 +335,27 @@ function enviarEmailContato(){
 }
 
 
-//ENVIO DE EMAIL DE CONTATO
+//ENVIO DE EMAIL DE COTACAO
 function enviarEmailCotacao(){
-    var myform = $('#formCotacao');
-    var disabled = myform.find(':input:disabled').removeAttr('disabled');
-    var dados = $("#formCotacao").serializeArray();
-    var verifica = conferirForm("formCotacao");
-    disabled.attr('disabled','disabled');
+    // myform = $("#formCotacao");
+    // var disabled = myform.find(':input:disabled').removeAttr('disabled');
+    // disabled.attr('disabled','disabled');
     $('#btn_cotacao').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
     $('#btn_cotacao').attr('disabled', true);
+    var verifica; 
+    if (!$('#formCotacao input[name="aereo"]').prop("checked") & 
+        !$('#formCotacao input[name="cabotagem"]').prop("checked") &
+        !$('#formCotacao input[name="rodoviario"]').prop("checked")
+        ) {
+        verifica = false;
+        $('.item_check').css("border", "3px solid red");
+    } else {
+        $('.item_check').css("border", "");
+        verifica = true;
+    }
+    var dados = $("#formCotacao").serializeArray();
+
+    verifica = conferirForm("formCotacao");
     if (!verifica) {
         swal({
             title: 'Atenção!',
@@ -291,7 +372,7 @@ function enviarEmailCotacao(){
     } else {
         $.ajax({
             type: "POST",
-            url: DIRETORIO + "enviarEmailCotacao.php",
+            url: "includes/" + "enviarEmailCotacao.php",
             dataType: "json",
             data: {data: JSON.stringify(dados)},
         }).done(function (ret) {
@@ -322,6 +403,178 @@ function enviarEmailCotacao(){
                 }).then(function () {
                 $('#btn_cotacao').html('<b>Enviar</b>');
                 $('#btn_cotacao').attr('disabled', false);
+            });
+        });
+    }
+}
+
+//ENVIO DE EMAIL PARCEIRO AUTONOMO
+function enviarEmailParceiroAutonomo(){
+    $('#btn_form_aut').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
+    $('#btn_form_aut').attr('disabled', true);
+    var verifica; 
+    if (!$('input[name="carretaLS-aut"]').prop("checked") & 
+        !$('input[name="carretaSimples-aut"]').prop("checked") &
+        !$('input[name="truck-aut"]').prop("checked") &
+        !$('input[name="tres-quartos-aut"]').prop("checked") &
+        !$('input[name="outrosAutVeiculoTxt"]').val() != ""
+        ) {
+        verifica = false;
+        $('.item_check_aut_veiculo').css("border", "3px solid red");
+    } else {
+        $('.item_check_aut_veiculo').css("border", "");
+        verifica = true;
+    }
+
+    if (!$('input[name="bau-aut"]').prop("checked") & 
+        !$('input[name="aberta-aut"]').prop("checked") &
+        !$('input[name="sider-aut"]').prop("checked") &
+        !$('input[name="portaContainer-aut"]').prop("checked") &
+        !$('input[name="outrosAutCarroceriaTxt"]').val() != ""
+        ) {
+        verifica = false;
+        $('.item_check_aut_carroceria').css("border", "3px solid red");
+    } else {
+        $('.item_check_aut_carroceria').css("border", "");
+        verifica = true;
+    }
+
+    var dados = $("#formAutonomo").serializeArray();
+
+    verifica = conferirForm("formAutonomo");
+    if (!verifica) {
+        swal({
+            title: 'Atenção!',
+            text: "Preencha corretamente os campos em vermelho.",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#66AAD7',
+            confirmButtonText: 'Ok',
+        }).then(function () {
+        });
+        $('#btn_form_aut').html('<b>Enviar</b>');
+        $('#btn_form_aut').attr('disabled', false);
+        return false;
+    } else {
+        $.ajax({
+            type: "POST",
+            url: "includes/" + "emailParceiroAutonomo.php",
+            dataType: "json",
+            data: {data: JSON.stringify(dados)},
+        }).done(function (ret) {
+            clearInputs('email');
+            swal({
+                title: ret.title,
+                text: ret.message,
+                type: ret.type,
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                    if (ret.sucesso) {
+                        clearInputs('email');
+                    }
+                    $('#btn_form_aut').html('<b>Enviar</b>');
+                    $('#btn_form_aut').attr('disabled', false);
+                    window.location.reload();
+            });
+        }).fail(function (response) {
+            swal({
+                title: 'Erro!',
+                text: "Ocorreu um erro ao enviar mensagem.",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                $('#btn_form_aut').html('<b>Enviar</b>');
+                $('#btn_form_aut').attr('disabled', false);
+            });
+        });
+    }
+}
+
+//ENVIO DE EMAIL PARCEIRO EMPRESA
+function enviarEmailParceiroEmpresa(){
+    $('#btn_form_emp').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
+    $('#btn_form_emp').attr('disabled', true);
+    var verifica; 
+    if (!$('#formEmpresa input[name="carretaLS-emp"]').prop("checked") & 
+        !$('#formEmpresa input[name="carretaSimples-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="truck-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="tres-quartos-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="outrosempVeiculoTxt"]').val() != ""
+        ) {
+        verifica = false;
+        $('.item_check_emp_veiculo').css("border", "3px solid red");
+    } else {
+        $('.item_check_emp_veiculo').css("border", "");
+        verifica = true;
+    }
+
+    if (!$('#formEmpresa input[name="bau-emp"]').prop("checked") & 
+        !$('#formEmpresa input[name="aberta-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="sider-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="portaContainer-emp"]').prop("checked") &
+        !$('#formEmpresa input[name="outrosempCarroceriaTxt"]').val() != ""
+        ) {
+        verifica = false;
+        $('.item_check_emp_carroceria').css("border", "3px solid red");
+    } else {
+        $('.item_check_emp_carroceria').css("border", "");
+        verifica = true;
+    }
+
+    var dados = $("#formEmpresa").serializeArray();
+
+    verifica = conferirForm("formEmpresa");
+    if (!verifica) {
+        swal({
+            title: 'Atenção!',
+            text: "Preencha corretamente os campos em vermelho.",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#66AAD7',
+            confirmButtonText: 'Ok',
+        }).then(function () {
+        });
+        $('#btn_form_emp').html('<b>Enviar</b>');
+        $('#btn_form_emp').attr('disabled', false);
+        return false;
+    } else {
+        $.ajax({
+            type: "POST",
+            url: "includes/" + "emailParceiroEmpresa.php",
+            dataType: "json",
+            data: {data: JSON.stringify(dados)},
+        }).done(function (ret) {
+            clearInputs('email');
+            swal({
+                title: ret.title,
+                text: ret.message,
+                type: ret.type,
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                    if (ret.sucesso) {
+                        clearInputs('email');
+                    }
+                    $('#btn_form_emp').html('<b>Enviar</b>');
+                    $('#btn_form_emp').attr('disabled', false);
+                    window.location.reload();
+            });
+        }).fail(function (response) {
+            swal({
+                title: 'Erro!',
+                text: "Ocorreu um erro ao enviar mensagem.",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#66AAD7',
+                confirmButtonText: 'Ok',
+                }).then(function () {
+                $('#btn_form_emp').html('<b>Enviar</b>');
+                $('#btn_form_emp').attr('disabled', false);
             });
         });
     }

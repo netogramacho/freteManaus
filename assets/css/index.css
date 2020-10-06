@@ -641,7 +641,7 @@ flex-wrap: wrap
 }
 
 /* FORMULARIO COTACAO */
-.form_cotacao {
+.form_padrao {
   padding: 50px;
 }
 .item_cotacao {
@@ -711,7 +711,7 @@ flex-wrap: wrap
 .item_campo_txtarea{
   height: 100px;
 }
-.form_cotacao h4 {
+.form_padrao h4 {
   text-align: center;
   font-family: BlackOblique;
   color: black;
@@ -721,8 +721,31 @@ flex-wrap: wrap
   margin: 0 47%;
   width: 6%;
 }
+.item_check{
+  border: 1px solid #000000ad;
+  border-radius: 5px;
+  padding: 0 15%;
+}
+.item_check input {
+  width: unset;
+  font-family: BlackOblique;
+  height: unset;
+  color: #00000090;
+}
+.lbl_check {
+  width: 100%;
+  text-align: center;
+}
 
-
+.div_check {
+  width: max-content;
+  margin: 0;
+  display: inline;
+}
+.div_sep {
+  display: inline;
+  padding: 0 15%;
+}
 
 
 /* RODAPE */
@@ -886,9 +909,38 @@ flex-wrap: wrap
     width: 30%;
   }
 }
+.text-center {
+  text-align: center;
+}
+
+/* PAG PARCEIRO */
+.radiosParceiro {
+  margin-bottom: 10px;
+}
+
+.div_sep_parc {
+  display: inline;
+  padding: 0 7%;
+}
+
+.div_check input[type=text] {
+  border: 1px solid #000000ad;
+  border-radius: 5px;
+  height: 20px;
+}
+
+#btn_form_aut, #btn_form_emp {
+  margin: 0 47%;
+  width: 6%;
+}
+
+#outrosAutVeiculoTxt, #outrosAutCarroceriaTxt {
+  color: #000;
+}
 
 
 
+/* ANIMACOES */
 @keyframes arrowToBottom {
   from {bottom: 25px;}
   to {bottom: 0px;}

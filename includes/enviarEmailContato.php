@@ -20,7 +20,7 @@
         $enderecos = array(
             "triunfocabotagem@gmail.com",
             "operacional@triunfocabotagem.com.br",
-            "comercial@triunfocanotagem.com.br",
+            "comercial@triunfocabotagem.com.br",
             "neto.paulo.po@gmail.com"
         );
     

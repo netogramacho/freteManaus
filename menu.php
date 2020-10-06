@@ -10,10 +10,13 @@
     <div class="col-md-6 padding-zero-mob">
         <ul class="d-xs-none menu_txt">
             <li onclick="exibirContato()">
-            <span>Contato</span>
+                <span>Contato</span>
+            </li>
+            <li onclick="location.href='parceiro.php'">
+                <span>Seja um parceiro</span>
             </li>
             <li onclick="location.href='cotacao.php'">
-            <span>Cotação</span>
+                <span>Cotação</span>
             </li>
             <li>
                 <a href="/"><span>Home</span></a>
